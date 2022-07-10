@@ -1,0 +1,12 @@
+{
+  "name": "@dite/playground",
+  "private": true,
+  "scripts": {
+    "build": "dite build",
+    "dev": "dite dev",
+    "start": "dite start"
+  },
+  "devDependencies": {
+    "dite": "latest"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "@dite/logger",
+  "version": "0.0.24",
+  "description": "@dite/logger",
+  "keywords": [
+    "dite"
+  ],
+  "homepage": "https://github.com/ditejs/dite/tree/master/packages/logger#readme",
+  "bugs": {
+    "url": "https://github.com/ditejs/dite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditejs/dite.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Zack",
+    "email": "mwl@live.com",
+    "url": "https://github.com/loyep"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm pkg-compile",
+    "dev": "pnpm build -- --watch",
+    "test": "pnpm test"
+  },
+  "dependencies": {
+    "pino": "^8.1.0"
+  },
+  "devDependencies": {
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.5"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.4.6"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

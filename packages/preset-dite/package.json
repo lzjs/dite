@@ -1,0 +1,48 @@
+{
+  "name": "@dite/preset-dite",
+  "version": "0.0.24",
+  "description": "@dite/preset-dite",
+  "keywords": [
+    "dite"
+  ],
+  "homepage": "https://github.com/ditejs/dite/tree/master/packages/preset-dite#readme",
+  "bugs": {
+    "url": "https://github.com/ditejs/dite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditejs/dite.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Zack",
+    "email": "mwl@live.com",
+    "url": "https://github.com/loyep"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "compiled",
+    "templates"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm pkg-compile",
+    "dev": "pnpm build -- --watch"
+  },
+  "dependencies": {
+    "@dite/bundler": "0.0.24",
+    "@dite/core": "0.0.24",
+    "@esbuild-plugins/node-resolve": "^0.1.4"
+  },
+  "devDependencies": {
+    "cross-spawn": "7.0.3",
+    "fast-glob": "3.2.11",
+    "globby": "11.1.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

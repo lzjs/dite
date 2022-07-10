@@ -1,0 +1,40 @@
+{
+  "name": "create-dite",
+  "version": "0.0.24",
+  "description": "create-dite",
+  "keywords": [
+    "dite"
+  ],
+  "homepage": "https://github.com/ditejs/dite/tree/master/packages/create-dite#readme",
+  "bugs": {
+    "url": "https://github.com/ditejs/dite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditejs/dite.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Zack",
+    "email": "mwl@live.com",
+    "url": "https://github.com/loyep"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "create-dite": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm pkg-compile",
+    "dev": "pnpm build -- --watch"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@dite/docs",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Docs for Dite",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {},
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "consola": "2.15.3",
+    "esbuild": "0.14.43",
+    "fast-glob": "3.2.11",
+    "fs-extra": "10.1.0",
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "typescript": "4.7.3"
+  }
+}

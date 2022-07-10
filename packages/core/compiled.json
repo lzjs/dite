@@ -1,0 +1,9 @@
+{
+  "deps": ["get-port", "joi", "tapable", "dotenv", "just-diff"],
+  "externals": {
+    "joi": "$$LOCAL",
+    "dotenv": "$$LOCAL",
+    "tapable": "$$LOCAL",
+    "just-diff": "$$LOCAL"
+  }
+}

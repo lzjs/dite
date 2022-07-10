@@ -1,0 +1,12 @@
+{
+  "deps": [
+    "webpack-5-chain",
+    "speed-measure-webpack-plugin",
+    "es-module-lexer"
+  ],
+  "externals": {
+    "webpack-5-chain": "$$LOCAL",
+    "es-module-lexer": "$$LOCAL"
+  },
+  "excludeDtsDeps": ["speed-measure-webpack-plugin"]
+}

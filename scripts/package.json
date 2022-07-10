@@ -1,0 +1,8 @@
+{
+  "name": "dite-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "bin": {
+    "dite-scripts": "index.js"
+  }
+}

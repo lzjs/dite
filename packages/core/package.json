@@ -1,0 +1,53 @@
+{
+  "name": "@dite/core",
+  "version": "0.0.24",
+  "description": "@dite/core",
+  "keywords": [
+    "dite"
+  ],
+  "homepage": "https://github.com/ditejs/dite/tree/master/packages/core#readme",
+  "bugs": {
+    "url": "https://github.com/ditejs/dite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditejs/dite.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Zack",
+    "email": "mwl@live.com",
+    "url": "https://github.com/loyep"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "pnpm pkg-compile",
+    "dev": "pnpm build -- --watch",
+    "test": "pnpm test"
+  },
+  "dependencies": {
+    "@dite/utils": "0.0.24",
+    "@swc/core": "^1.2.210",
+    "string-argv": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/hapi__joi": "17.1.8",
+    "@types/string-argv": "^0.1.0",
+    "dotenv": "16.0.0",
+    "get-port": "^6.1.2",
+    "joi": "17.6.0",
+    "just-diff": "5.0.1",
+    "ps-tree": "^1.2.0",
+    "tapable": "2.2.1"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
