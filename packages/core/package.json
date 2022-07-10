@@ -39,10 +39,10 @@
   "devDependencies": {
     "@types/hapi__joi": "17.1.8",
     "@types/string-argv": "^0.1.0",
-    "dotenv": "16.0.0",
+    "dotenv": "16.0.1",
     "get-port": "^6.1.2",
     "joi": "17.6.0",
-    "just-diff": "5.0.1",
+    "just-diff": "5.0.3",
     "ps-tree": "^1.2.0",
     "tapable": "2.2.1"
   },

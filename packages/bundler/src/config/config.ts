@@ -8,7 +8,6 @@ import { Env, IConfig } from '../types';
 import { getBrowsersList } from '../utils/browsersList';
 import { addSpeedMeasureWebpackPlugin } from './speedMeasureWebpackPlugin';
 import webpackNodeExternals = require('webpack-node-externals');
-import ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 export interface IOpts {
   cwd: string;
