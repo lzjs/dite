@@ -36,9 +36,8 @@
     "@dite/core": "0.0.25"
   },
   "devDependencies": {
-    "cross-spawn": "7.0.3",
-    "fast-glob": "3.2.11",
-    "globby": "11.1.0"
+    "cross-spawn": "^7.0.3",
+    "fast-glob": "^3.2.11"
   },
   "publishConfig": {
     "access": "public",

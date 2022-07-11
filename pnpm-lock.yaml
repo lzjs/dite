@@ -4,11 +4,11 @@ importers:
 
   .:
     specifiers:
-      '@dite/bundler': '*'
-      '@dite/core': '*'
-      '@dite/preset-dite': '*'
-      '@dite/server': '*'
-      '@dite/utils': '*'
+      '@dite/bundler': workspace
+      '@dite/core': workspace
+      '@dite/preset-dite': workspace
+      '@dite/server': workspace
+      '@dite/utils': workspace
       '@jest/types': ^28.1.1
       '@pnpm/lockfile-file': ^5.1.4
       '@pnpm/logger': ^4.0.0
@@ -18,9 +18,9 @@ importers:
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
       '@types/resolve': ^1.20.2
-      create-dite: '*'
-      dite: '*'
-      dite-scripts: '*'
+      create-dite: workspace
+      dite: workspace
+      dite-scripts: workspace
       esbuild: ^0.14.48
       esno: 0.16.3
       husky: 8.0.1
@@ -110,43 +110,41 @@ importers:
   examples/api:
     specifiers:
       '@dite/server': 0.0.25
-      '@nestjs/cli': 9.0.0
-      '@nestjs/common': 9.0.1
-      '@nestjs/core': 9.0.1
-      '@nestjs/platform-express': 9.0.1
-      '@types/express': 4.17.13
-      '@types/node': 17.0.24
-      '@types/react': 17.0.44
-      '@types/react-dom': 17.0.15
-      '@typescript-eslint/eslint-plugin': 5.30.5
-      '@typescript-eslint/parser': 5.30.5
+      '@nestjs/common': ^9.0.1
+      '@nestjs/core': ^9.0.1
+      '@nestjs/platform-express': ^9.0.1
+      '@types/express': ^4.17.13
+      '@types/node': ^17.0.24
+      '@types/react': ^17.0.44
+      '@types/react-dom': ^17.0.15
+      '@typescript-eslint/eslint-plugin': ^5.30.5
+      '@typescript-eslint/parser': ^5.30.5
       dite: 0.0.25
-      eslint: 8.19.0
-      eslint-config-prettier: 8.5.0
-      eslint-plugin-prettier: 4.2.1
-      prettier: 2.7.1
-      react: 17.0.2
-      react-dom: 17.0.2
-      reflect-metadata: 0.1.13
-      rxjs: 7.5.5
+      eslint: ^8.19.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.2.1
+      prettier: ^2.7.1
+      react: ^18.2.0
+      react-dom: ^18.2.0
+      reflect-metadata: ^0.1.13
+      rxjs: ^7.5.5
       ts-loader: ^9.3.1
-      tsconfig-paths: 4.0.0
-      typescript: 4.7.4
+      tsconfig-paths: ^4.0.0
+      typescript: ^4.7.4
     dependencies:
       '@dite/server': link:../../packages/server
       '@nestjs/common': 9.0.1_e7ea248743279784063e3708d703abc5
       '@nestjs/core': 9.0.1_07c803f146c9c6e57b8f66d2c197e377
       '@nestjs/platform-express': 9.0.1_ff60cc94aab74820876cb982ad1bcd55
       dite: link:../../packages/dite
-      react: 17.0.2
-      react-dom: 17.0.2_react@17.0.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
       reflect-metadata: 0.1.13
       rxjs: 7.5.5
       ts-loader: 9.3.1_typescript@4.7.4+webpack@5.73.0
     devDependencies:
-      '@nestjs/cli': 9.0.0_5c49e6517b9e0225bb4dfcde188677b5
       '@types/express': 4.17.13
-      '@types/node': 17.0.24
+      '@types/node': 17.0.45
       '@types/react': 17.0.44
       '@types/react-dom': 17.0.15
       '@typescript-eslint/eslint-plugin': 5.30.5_f646e16e2de31e818e163bded4698d6b
@@ -296,38 +294,38 @@ importers:
       '@dite/logger': 0.0.25
       '@dite/preset-dite': 0.0.25
       '@dite/utils': 0.0.25
-      '@nestjs/common': 9.0.1
-      '@nestjs/core': 9.0.1
-      '@nestjs/platform-express': 9.0.1
+      '@nestjs/common': ^9.0.2
+      '@nestjs/core': ^9.0.2
+      '@nestjs/platform-express': ^9.0.2
       '@types/cross-spawn': ^6.0.2
       '@types/express': ^4.17.13
-      '@types/lodash': 4.14.182
+      '@types/lodash': ^4.14.182
       '@types/node-cleanup': ^2.1.2
       '@types/string-argv': ^0.1.0
-      chalk: 5.0.1
+      chalk: ^5.0.1
       consola: ^2.15.3
       cross-spawn: ^7.0.3
-      find-up: 6.3.0
-      fs-extra: 10.1.0
-      lodash: 4.17.21
+      find-up: ^6.3.0
+      fs-extra: ^10.1.0
+      lodash: ^4.17.21
       node-cleanup: ^2.1.2
-      pirates: 4.0.5
-      ps-tree: 1.2.0
-      reflect-metadata: 0.1.13
-      rxjs: 7.5.5
+      pirates: ^4.0.5
+      ps-tree: ^1.2.0
+      reflect-metadata: ^0.1.13
+      rxjs: ^7.5.5
       string-argv: ^0.3.1
-      strip-ansi: 7.0.1
-      v8-compile-cache: 2.3.0
-      webpack-5-chain: 8.0.1
+      strip-ansi: ^7.0.1
+      v8-compile-cache: ^2.3.0
+      webpack-5-chain: ^8.0.1
     dependencies:
       '@dite/cli': link:../cli
       '@dite/core': link:../core
       '@dite/logger': link:../logger
       '@dite/preset-dite': link:../preset-dite
       '@dite/utils': link:../utils
-      '@nestjs/common': 9.0.1_e7ea248743279784063e3708d703abc5
-      '@nestjs/core': 9.0.1_07c803f146c9c6e57b8f66d2c197e377
-      '@nestjs/platform-express': 9.0.1_ff60cc94aab74820876cb982ad1bcd55
+      '@nestjs/common': 9.0.2_e7ea248743279784063e3708d703abc5
+      '@nestjs/core': 9.0.2_264c09a0465d95276c43a92ef5842cef
+      '@nestjs/platform-express': 9.0.2_fd8242ea515b2042aa75e63b3cf01be7
       chalk: 5.0.1
       consola: 2.15.3
       cross-spawn: 7.0.3
@@ -352,8 +350,8 @@ importers:
 
   packages/logger:
     specifiers:
-      '@nestjs/common': 9.0.1
-      '@nestjs/core': 9.0.1
+      '@nestjs/common': ^9.0.1
+      '@nestjs/core': ^9.0.1
       pino: ^8.1.0
       reflect-metadata: ^0.1.13
       rxjs: ^7.5.5
@@ -369,16 +367,14 @@ importers:
     specifiers:
       '@dite/bundler': 0.0.25
       '@dite/core': 0.0.25
-      cross-spawn: 7.0.3
-      fast-glob: 3.2.11
-      globby: 11.1.0
+      cross-spawn: ^7.0.3
+      fast-glob: ^3.2.11
     dependencies:
       '@dite/bundler': link:../bundler
       '@dite/core': link:../core
     devDependencies:
       cross-spawn: 7.0.3
       fast-glob: 3.2.11
-      globby: 11.1.0
 
   packages/server:
     specifiers:
@@ -410,7 +406,7 @@ importers:
   packages/utils:
     specifiers:
       '@types/cross-spawn': ^6.0.2
-      '@types/debug': 4.1.7
+      '@types/debug': ^4.1.7
       '@types/fs-extra': ^9.0.13
       '@types/lodash': ^4.14.182
       '@types/prettier': ^2.6.3
@@ -418,26 +414,25 @@ importers:
       '@types/rimraf': ^3.0.2
       '@types/type-is': ^1.6.3
       '@types/yargs-parser': ^21.0.0
-      chalk: 5.0.1
-      chokidar: 3.5.3
+      chalk: ^5.0.1
+      chokidar: ^3.5.3
       cross-spawn: ^7.0.3
       dayjs: ^1.11.3
-      debug: 4.3.4
+      debug: ^4.3.4
       esbuild: ^0.14.48
-      fast-glob: 3.2.11
-      fs-extra: 10.1.0
-      globby: 11.1.0
-      just-diff: 5.0.3
+      fast-glob: ^3.2.11
+      fs-extra: ^10.1.0
+      just-diff: ^5.0.3
       lodash: ^4.17.21
       mrmime: ^1.0.1
       pino: ^8.1.0
-      pirates: 4.0.5
-      pkg-up: 4.0.0
+      pirates: ^4.0.5
+      pkg-up: ^4.0.0
       prettier: ^2.7.1
       resolve: ^1.22.1
-      rimraf: 3.0.2
+      rimraf: ^3.0.2
       type-is: ^1.6.18
-      yargs-parser: 21.0.1
+      yargs-parser: ^21.0.1
     devDependencies:
       '@types/cross-spawn': 6.0.2
       '@types/debug': 4.1.7
@@ -456,7 +451,6 @@ importers:
       esbuild: 0.14.48
       fast-glob: 3.2.11
       fs-extra: 10.1.0
-      globby: 11.1.0
       just-diff: 5.0.3
       lodash: 4.17.21
       mrmime: 1.0.1
@@ -1998,6 +1992,29 @@ packages:
       tslib: 2.4.0
       uuid: 8.3.2
 
+  /@nestjs/common/9.0.2_e7ea248743279784063e3708d703abc5:
+    resolution: {integrity: sha512-hk0LiyFvyoQSTIU9cWSMTv9YXIqWWzyhyxvqsytKuVeesGGEhrDdNMfYvKMCmxN3Rj+Gi0Kye0ehsXlCHIK7zA==}
+    peerDependencies:
+      cache-manager: '*'
+      class-transformer: '*'
+      class-validator: '*'
+      reflect-metadata: ^0.1.12
+      rxjs: ^7.1.0
+    peerDependenciesMeta:
+      cache-manager:
+        optional: true
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    dependencies:
+      iterare: 1.2.1
+      reflect-metadata: 0.1.13
+      rxjs: 7.5.5
+      tslib: 2.4.0
+      uuid: 8.3.2
+    dev: false
+
   /@nestjs/core/9.0.1_07c803f146c9c6e57b8f66d2c197e377:
     resolution: {integrity: sha512-gdrjQhqPN588pmlwzRWA0NsLhWiACUX4Me2Y1BI9Jm5dzmWMgde/zUfFmkvUKiONqKQoZagcCzFtWSWuYjTENQ==}
     requiresBuild: true
@@ -2062,6 +2079,39 @@ packages:
       - encoding
     dev: true
 
+  /@nestjs/core/9.0.2_264c09a0465d95276c43a92ef5842cef:
+    resolution: {integrity: sha512-Gbj+xpRJOpSHCtv+z6hQIuj8B787A57cbDNguzAx9O0+Z5S+r71kotTYCHIkLqzGxc8Z1qDuimJwBpMPO2OGTw==}
+    requiresBuild: true
+    peerDependencies:
+      '@nestjs/common': ^9.0.0
+      '@nestjs/microservices': ^9.0.0
+      '@nestjs/platform-express': ^9.0.0
+      '@nestjs/websockets': ^9.0.0
+      reflect-metadata: ^0.1.12
+      rxjs: ^7.1.0
+    peerDependenciesMeta:
+      '@nestjs/microservices':
+        optional: true
+      '@nestjs/platform-express':
+        optional: true
+      '@nestjs/websockets':
+        optional: true
+    dependencies:
+      '@nestjs/common': 9.0.2_e7ea248743279784063e3708d703abc5
+      '@nestjs/platform-express': 9.0.2_fd8242ea515b2042aa75e63b3cf01be7
+      '@nuxtjs/opencollective': 0.3.2
+      fast-safe-stringify: 2.1.1
+      iterare: 1.2.1
+      object-hash: 3.0.0
+      path-to-regexp: 3.2.0
+      reflect-metadata: 0.1.13
+      rxjs: 7.5.5
+      tslib: 2.4.0
+      uuid: 8.3.2
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
   /@nestjs/platform-express/9.0.1_ff60cc94aab74820876cb982ad1bcd55:
     resolution: {integrity: sha512-fL/OWwL6wQwksPT0uGzfpIAEQt5Tt/vHa8ENsswWfiSI3G2MjC9E3iK1R0GVobe+XelQM7Dxf9DkYyHN7xHQKg==}
     peerDependencies:
@@ -2077,6 +2127,23 @@ packages:
       tslib: 2.4.0
     transitivePeerDependencies:
       - supports-color
+
+  /@nestjs/platform-express/9.0.2_fd8242ea515b2042aa75e63b3cf01be7:
+    resolution: {integrity: sha512-UAjHIMCM1B5oikZNcsm8e2gdX+hMsAgnmoVUkyo5qk1ZH2QKYHlzSuB0ODtB8IzDeBm7B54cYHCaA+lrGXtNPg==}
+    peerDependencies:
+      '@nestjs/common': ^9.0.0
+      '@nestjs/core': ^9.0.0
+    dependencies:
+      '@nestjs/common': 9.0.2_e7ea248743279784063e3708d703abc5
+      '@nestjs/core': 9.0.2_264c09a0465d95276c43a92ef5842cef
+      body-parser: 1.20.0
+      cors: 2.8.5
+      express: 4.18.1
+      multer: 1.4.4-lts.1
+      tslib: 2.4.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
 
   /@nestjs/schematics/9.0.1_chokidar@3.5.3+typescript@4.7.4:
     resolution: {integrity: sha512-QU7GbnQvADFXdumcdADmv4vil3bhnYl2IFHWKieRt0MgIhghgBxIB7kDKWhswcuZ0kZztVbyYjo9aCrlf62fcw==}
@@ -8317,6 +8384,19 @@ packages:
       react: 17.0.2
       scheduler: 0.20.2
 
+  /react-dom/18.2.0_react@18.2.0:
+    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+    peerDependencies:
+      react: ^18.2.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.2.0
+      scheduler: 0.23.0
+    dev: false
+
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
@@ -8327,6 +8407,13 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+
+  /react/18.2.0:
+    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /read-cmd-shim/2.0.0:
     resolution: {integrity: sha512-HJpV9bQpkl6KwjxlJcBoqu9Ba0PQg8TqSNIOrulGt54a0uup0HtevreFHzYzkm0lpnleRdNBzXznKrgxglEHQw==}
@@ -8622,6 +8709,12 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+
+  /scheduler/0.23.0:
+    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /schema-utils/3.1.1:
     resolution: {integrity: sha512-Y5PQxS4ITlC+EahLuXaY86TXfR7Dc5lw294alXOq86JAHCihAIZfqv8nNCWvaEJvaC51uN9hbLGeV0cFBdH+Fw==}

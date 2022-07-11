@@ -1,7 +1,6 @@
 {
   "deps": [
     "fast-glob",
-    "globby",
     "fs-extra",
     "cross-spawn",
     "chalk",

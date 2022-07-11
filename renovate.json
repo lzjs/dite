@@ -3,8 +3,8 @@
   "commitMessageAction": "Bump",
   "commitMessageExtra": "to {{newValue}}",
   "commitMessageTopic": "{{depName}}",
-  "extends": ["config:base"],
-  "ignoreDeps": ["@types/react", "@types/react-dom", "zx", "chalk", "globby"],
+  "extends": ["config:base", ":preserveSemverRanges"],
+  "ignoreDeps": ["@types/react", "@types/react-dom", "zx", "chalk"],
   "ignorePaths": ["fixtures", "test/"],
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [
