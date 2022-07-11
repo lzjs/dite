@@ -5,7 +5,11 @@ export default () => {
       // commands
       require.resolve('./commands/routes'),
       require.resolve('./commands/version'),
-      require.resolve('./commands/dev/dev'),
+      require.resolve('./commands/dev'),
+      require.resolve('./commands/start'),
+      require.resolve('./commands/build'),
+      require.resolve('./commands/generate'),
+      require.resolve('./commands/upgrade'),
     ],
   };
 };

@@ -1,9 +1,7 @@
-// import { autoCssModulesHandler, esbuildLoader } from '@umijs/mfsu';
 import chalk from '@dite/utils/compiled/chalk';
 import { dirname, isAbsolute } from 'path';
 import Config from '../../compiled/webpack-5-chain';
 import { Env, IConfig } from '../types';
-// import { es5ImcompatibleVersionsToPkg, isMatch } from '../utils/depMatch';
 
 interface IOpts {
   config: Config;
@@ -20,9 +18,6 @@ interface IOpts {
 
 export async function addJavaScriptRules(opts: IOpts) {
   const { config, userConfig, cwd, name } = opts;
-  const isDev = opts.env === Env.development;
-  const useFastRefresh = false;
-  // isDev && userConfig.fastRefresh !== false && name !== MFSU_NAME;
 
   const depPkgs = {};
   const srcRules = [
@@ -32,7 +27,6 @@ export async function addJavaScriptRules(opts: IOpts) {
       .include.add([
         cwd,
         // import module out of cwd using APP_ROOT
-        // issue: https://github.com/umijs/umi/issues/5594
         ...(process.env.APP_ROOT ? [process.cwd()] : []),
       ])
       .end()
@@ -108,13 +102,13 @@ export async function addJavaScriptRules(opts: IOpts) {
 
   // const prefix = existsSync(join(cwd, 'src')) ? join(cwd, 'src') : cwd;
   // const srcTranspiler = userConfig.srcTranspiler || Transpiler.babel;
-  srcRules.forEach((rule) => {
-    // const AutoCSSModule = require('../swcPlugins/autoCSSModules').default;
-    rule.use('swc-loader').loader(require.resolve('../loader/swc'));
-    // .options({
-    //   plugin: (m: Program) => new AutoCSSModule().visitProgram(m),
-    // });
-  });
+  // srcRules.forEach((rule) => {
+  // const AutoCSSModule = require('../swcPlugins/autoCSSModules').default;
+  // rule.use('swc-loader').loader(require.resolve('../loader/swc'));
+  // .options({
+  //   plugin: (m: Program) => new AutoCSSModule().visitProgram(m),
+  // });
+  // });
 
   if (userConfig.mdx) {
     config.module

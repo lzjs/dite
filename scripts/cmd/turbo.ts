@@ -1,5 +1,5 @@
 import yArgs from '@dite/utils/compiled/yargs-parser';
-import { PATHS } from '../const';
+import { PATHS } from '../internal/const';
 import { spawnSync } from '../utils';
 
 (async () => {

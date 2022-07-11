@@ -2,7 +2,7 @@ import spawn from '@dite/utils/compiled/cross-spawn';
 import fs from '@dite/utils/compiled/fs-extra';
 import type { SpawnSyncOptions } from 'child_process';
 import { join } from 'path';
-import { packagesDir } from '../const';
+import { packagesDir } from '../internal/const';
 
 export function getPkgs(opts?: { base?: string }): string[] {
   const base = opts?.base || packagesDir;

@@ -6,8 +6,8 @@ import {
   resolve,
   winPath,
 } from '@dite/utils';
-import * as swc from '@swc/core';
 import assert from 'assert';
+import esbuild from 'esbuild';
 import path from 'path';
 import { EnableBy, Env, IPluginConfig } from '../types';
 
@@ -61,7 +61,7 @@ export class Plugin {
     this.key = this.getKey({ pkg, isPkgEntry });
     this.apply = () => {
       register.register({
-        implementor: swc,
+        implementor: esbuild,
         exts: ['.ts', '.mjs'],
       });
       register.clearFiles();
@@ -118,16 +118,16 @@ export class Plugin {
 
     return nameToKey(
       opts.isPkgEntry
-        ? Plugin.stripNoneUmiScope(opts.pkg.name).replace(RE[this.type], '')
+        ? Plugin.stripNoneDiteScope(opts.pkg.name).replace(RE[this.type], '')
         : path.basename(this.path, path.extname(this.path)),
     );
   }
 
   static isPluginOrPreset(type: 'plugin' | 'preset', name: string) {
-    return RE[type].test(Plugin.stripNoneUmiScope(name));
+    return RE[type].test(Plugin.stripNoneDiteScope(name));
   }
 
-  static stripNoneUmiScope(name: string) {
+  static stripNoneDiteScope(name: string) {
     if (name.charAt(0) === '@' && !name.startsWith('@dite/')) {
       name = name.split('/')[1];
     }

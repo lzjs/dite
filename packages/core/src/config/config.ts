@@ -2,8 +2,8 @@ import getPort from '@dite/core/compiled/get-port';
 import { chokidar, lodash, register } from '@dite/utils';
 import fs from '@dite/utils/compiled/fs-extra';
 import { diff } from '@dite/utils/compiled/just-diff';
-import * as swc from '@swc/core';
 import assert from 'assert';
+import esbuild from 'esbuild';
 import path from 'path';
 import joi from '../../compiled/joi';
 import {
@@ -42,7 +42,7 @@ function getUserConfig(configFiles: string[]) {
   for (const configFile of configFiles) {
     if (fs.existsSync(configFile)) {
       register.register({
-        implementor: swc,
+        implementor: esbuild,
       });
       register.clearFiles();
       config = lodash.merge(config, require(configFile).default);
@@ -220,7 +220,7 @@ export class Config {
     for (const configFile of opts.configFiles) {
       if (fs.existsSync(configFile)) {
         register.register({
-          implementor: swc,
+          implementor: esbuild,
         });
         register.clearFiles();
         config = lodash.merge(config, require(configFile).default);

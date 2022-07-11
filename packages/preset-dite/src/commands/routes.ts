@@ -5,9 +5,10 @@ export default (api: IApi) => {
   api.registerCommand({
     name: 'routes',
     description: 'Routes',
-    fn: async () => {
+    fn() {
       const routes = formatRoutes({}, 'jsx');
       console.log(routes);
+      return routes;
     },
   });
 };

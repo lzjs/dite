@@ -1,4 +1,4 @@
-import { PATHS } from '../const';
+import { PATHS } from '../internal/const';
 import { spawnSync } from '../utils';
 
 (async () => {

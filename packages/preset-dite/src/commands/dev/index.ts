@@ -3,11 +3,11 @@ import getPort from '@dite/core/compiled/get-port';
 import { fsExtra, lodash, logger } from '@dite/utils';
 import esbuild from 'esbuild';
 import path from 'path';
-import { buildDir, SwcBuilder } from '../../bundles/swc/build';
+import { buildDir, Builder } from '../../bundles/esbuild/build';
 import { IApi } from '../../types';
 
 const startServer = (
-  builder: SwcBuilder,
+  builder: Builder,
   opts: {
     cwd: string;
     port: number;

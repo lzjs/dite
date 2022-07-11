@@ -1,5 +1,6 @@
 import { yParser } from '@dite/utils';
-import { Service } from '../../service';
+import { Service } from '../service';
+
 (async () => {
   try {
     const args = yParser(process.argv.slice(2));

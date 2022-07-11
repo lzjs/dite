@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import { join } from 'path';
 import 'zx/globals';
-import { examplesDir } from '../const';
+import { examplesDir } from '../internal/const';
 import { getPkgs } from '../utils';
 import { clean } from './clean';
 
@@ -100,8 +100,7 @@ function setDepsVersion(opts: {
     // do not publish
     (pkg) => !['env', 'react'].includes(pkg),
   );
-  await Promise
-    .all(
-      innerPkgs.map((pkg) => $`cd packages/${pkg} && npm publish --tag ${tag}`),
-    );
+  await Promise.all(
+    innerPkgs.map((pkg) => $`cd packages/${pkg} && npm publish --tag ${tag}`),
+  );
 })();

@@ -1,6 +1,5 @@
 import { lodash, yParser } from '@dite/utils';
 import fs from '@dite/utils/compiled/fs-extra';
-import prettier from '@dite/utils/compiled/prettier';
 import assert from 'assert';
 import { isAbsolute, join } from 'path';
 import {
@@ -239,7 +238,6 @@ export class Service {
     if (args._[0] === name) args._.shift();
     this.args = args;
     this.name = name;
-    console.log('name', name, 'args', args);
     const { pkg, pkgPath } = getPkg({ cwd: this.cwd });
     this.pkg = pkg;
     this.pkgPath = pkgPath;
@@ -354,12 +352,6 @@ export class Service {
     });
     // run command
     this.stage = ServiceStage.runCommand;
-    fs.writeFileSync(
-      join(this.cwd, '.dite/config.js'),
-      prettier.format(`module.exports = ${JSON.stringify(this.appData)}`, {
-        parser: 'babel',
-      }),
-    );
     return command.fn({ args });
   }
 

@@ -39,7 +39,7 @@ interface BuilderOptions {
   env: Env;
 }
 
-export class SwcBuilder {
+export class Builder {
   private readonly opts: BuilderOptions;
   protected readonly serverOutputPath: string;
   protected readonly serverOutputPath2: string;
@@ -90,7 +90,7 @@ export class SwcBuilder {
 }
 
 export async function buildDir(opts: { dir: string; env: Env }) {
-  const builder = new SwcBuilder({ dir: opts.dir, env: opts.env });
+  const builder = new Builder({ dir: opts.dir, env: opts.env });
   await builder.buildAll();
   return builder;
 }

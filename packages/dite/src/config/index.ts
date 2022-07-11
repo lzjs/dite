@@ -1,7 +1,7 @@
 import { register } from '@dite/utils';
 import fs from '@dite/utils/compiled/fs-extra';
 import lodash from '@dite/utils/compiled/lodash';
-import * as swc from '@swc/core';
+import esbuild from 'esbuild';
 import { configFiles } from '../constants';
 import { getAbsFiles } from './utils';
 
@@ -28,7 +28,7 @@ function getUserConfig(configFiles: string[]) {
   for (const configFile of configFiles) {
     if (fs.existsSync(configFile)) {
       register.register({
-        implementor: swc,
+        implementor: esbuild,
       });
       register.clearFiles();
       config = lodash.merge(config, require(configFile).default);

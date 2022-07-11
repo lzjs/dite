@@ -1,7 +1,6 @@
-// import { getSchemas as getViteSchemas } from '@umijs/bundler-vite/dist/schema';
-// import { getSchemas as getWebpackSchemas } from '@umijs/bundler-webpack/dist/schema';
-import { resolve } from '@dite/utils';
-import { dirname } from 'path';
+import { fsExtra as fs, resolve } from '@dite/utils';
+import prettier from '@dite/utils/compiled/prettier';
+import path, { dirname, join } from 'path';
 import { IApi } from '../../types';
 import { getSchemas as getExtraSchemas } from './schema';
 
@@ -28,25 +27,6 @@ export default (api: IApi) => {
   // const reactDOMVersion = require(join(reactDOMPath, 'package.json')).version;
   // const isLT18 = !reactDOMVersion.startsWith('18.');
   const configDefaults: Record<string, any> = {
-    // alias: {
-    // umi: '@@/exports',
-    // react:
-    //   resolveProjectDep({
-    //     pkg: api.pkg,
-    //     cwd: api.cwd,
-    //     dep: 'react',
-    //   }) || dirname(require.resolve('react/package.json')),
-    // ...(isLT18
-    //   ? {
-    //     'react-dom/client': reactDOMPath,
-    //   }
-    //   : {}),
-    // 'react-dom': reactDOMPath,
-    // 'react-router': dirname(require.resolve('react-router/package.json')),
-    // 'react-router-dom': dirname(
-    //   require.resolve('react-router-dom/package.json'),
-    // ),
-    // },
     externals: {},
     port: 3001,
     autoCSSModules: true,
@@ -57,6 +37,11 @@ export default (api: IApi) => {
     svgr: {},
   };
 
+  // const distDir = path.join(process.cwd(), '.dite');
+  // await fs.mkdirp(distDir);
+  // await fs.mkdirp(path.join(process.cwd(), 'public'));
+  // const routes = formatRoutes({}, 'raw');
+  // await fs.writeJSON(path.join(distDir, 'routes.json'), routes);
   // const bundleSchemas = api.config.vite
   //   ? getViteSchemas()
   //   : getWebpackSchemas();
@@ -80,6 +65,19 @@ export default (api: IApi) => {
       },
     ]);
   }
+
+  api.onStart(async () => {
+    const distDir = path.join(api.cwd, '.dite');
+    await fs.mkdirp(distDir);
+    await fs.mkdirp(path.join(api.cwd, 'public'));
+
+    fs.writeFileSync(
+      join(api.cwd, '.dite/config.js'),
+      prettier.format(`module.exports = ${JSON.stringify(api.appData)}`, {
+        parser: 'babel',
+      }),
+    );
+  });
 
   // api.paths is ready after register
   api.modifyConfig(async (memo, args) => {

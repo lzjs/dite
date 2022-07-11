@@ -190,22 +190,6 @@ export async function getConfig(opts: IOpts) {
         ),
     });
 
-    // tnpm 安装依赖的情况 webpack 默认的 managedPaths 不生效
-    // 使用 immutablePaths 避免 node_modules 的内容被写入缓存
-    // tnpm 安装的依赖路径中同时包含包名和版本号，满足 immutablePaths 使用的条件
-    // 同时配置 managedPaths 将 tnpm 的软连接结构标记为可信，避免执行快照序列化时 OOM
-    // ref: smallfish
-    // if (/*isTnpm*/ require('@umijs/utils/package').__npminstall_done) {
-    //   const nodeModulesPath =
-    //     opts.cache.absNodeModulesPath ||
-    //     path.join(opts.rootDir || opts.cwd, 'node_modules');
-    //
-    //   config.snapshot({
-    //     immutablePaths: [nodeModulesPath],
-    //     managedPaths: [nodeModulesPath],
-    //   });
-    // }
-
     config.infrastructureLogging({
       level: 'error',
       ...(process.env.WEBPACK_FS_CACHE_DEBUG

@@ -4,7 +4,7 @@ export const examplesDir = join(__dirname, '../examples');
 
 export const packagesDir = join(__dirname, '../packages');
 
-const ROOT = join(__dirname, '../');
+const ROOT = join(__dirname, '../../');
 
 export const PATHS = {
   ROOT,

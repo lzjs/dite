@@ -2,7 +2,7 @@ import { IApi } from '../types';
 
 export default (api: IApi) => {
   api.registerCommand({
-    name: 'version2',
+    name: 'version',
     alias: 'v',
     description: 'show dite version',
     configResolveMode: 'loose',

@@ -1,4 +1,5 @@
 import { addHook } from '@dite/utils/compiled/pirates';
+import { extname } from 'path';
 
 const COMPILE_EXTS = ['.ts', '.tsx', '.js', '.jsx'];
 const HOOK_EXTS = [...COMPILE_EXTS, '.mjs'];
@@ -10,26 +11,21 @@ let revert: () => void = () => {};
 function transform(opts: { code: string; filename: string; implementor: any }) {
   const { code, filename, implementor } = opts;
   files.push(filename);
-  return implementor.transformSync(code, {
-    sourceMaps: false,
-    module: {
-      type: 'commonjs',
-      strict: true,
-    },
-    jsc: {
+  const ext = extname(filename);
+  try {
+    return implementor.transformSync(code, {
+      sourcefile: filename,
+      loader: ext.slice(1),
+      // consistent with `tsconfig.base.json`
+      // https://github.com/umijs/umi-next/pull/729
       target: 'es2019',
-      parser: {
-        syntax: 'typescript',
-        tsx: true,
-        decorators: true,
-        dynamicImport: true,
-      },
-      transform: {
-        legacyDecorator: true,
-        decoratorMetadata: true,
-      },
-    },
-  }).code;
+      format: 'cjs',
+      logLevel: 'error',
+    }).code;
+  } catch (e) {
+    // @ts-ignore
+    throw new Error(`Parse file failed: [${filename}]`, { cause: e });
+  }
 }
 
 export function register(opts: { implementor: any; exts?: string[] }) {

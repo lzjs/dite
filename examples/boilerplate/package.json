@@ -2,12 +2,9 @@
   "name": "@dite-example/boilerplate",
   "private": true,
   "scripts": {
-    "build": "nest build",
-    "build2": "dite build",
+    "build": "dite build",
     "dev": "SPEED_MEASURE=JSON dite dev",
-    "routes": "dite routes",
-    "start": "dite start",
-    "v2": "dite version2"
+    "start": "dite start"
   },
   "dependencies": {
     "@dite/server": "0.0.25",

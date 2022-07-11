@@ -1,4 +1,3 @@
-import type { Config as SwcConfig } from '@swc/core';
 import type { CommonOptions as EsbuildConfig } from 'esbuild';
 import { Configuration } from 'webpack';
 import Config from '../compiled/webpack-5-chain';
@@ -50,11 +49,6 @@ export interface IConfig {
   writeToDisk?: boolean;
 
   [key: string]: any;
-}
-
-export interface SwcOptions extends SwcConfig {
-  sync?: boolean;
-  parseMap?: boolean;
 }
 
 export interface EsbuildOptions extends EsbuildConfig {
