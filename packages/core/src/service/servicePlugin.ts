@@ -1,4 +1,4 @@
-import { PluginAPI } from './pluginAPI';
+import { PluginAPI } from './pluginApi';
 
 export default (api: PluginAPI) => {
   [

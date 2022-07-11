@@ -11,9 +11,9 @@
   },
   "dependencies": {
     "@dite/server": "0.0.25",
-    "@nestjs/common": "^8.4.7",
-    "@nestjs/core": "^8.4.7",
-    "@nestjs/platform-express": "^8.4.7",
+    "@nestjs/common": "9.0.1",
+    "@nestjs/core": "9.0.1",
+    "@nestjs/platform-express": "9.0.1",
     "dite": "0.0.25",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -22,7 +22,7 @@
     "ts-loader": "^9.3.1"
   },
   "devDependencies": {
-    "@nestjs/cli": "^8.2.8",
+    "@nestjs/cli": "9.0.0",
     "@types/express": "4.17.13",
     "@types/node": "17.0.24",
     "@types/react": "17.0.44",
@@ -34,6 +34,6 @@
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.6.2",
     "tsconfig-paths": "4.0.0",
-    "typescript": "4.7.3"
+    "typescript": "4.7.4"
   }
 }
