@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@dite/utils": "0.0.25",
-    "@swc/core": "^1.2.210",
     "string-argv": "^0.3.1"
   },
   "devDependencies": {
