@@ -32,12 +32,10 @@
     "test": "pnpm test"
   },
   "dependencies": {
-    "@dite/utils": "0.0.25",
-    "string-argv": "^0.3.1"
+    "@dite/utils": "0.0.25"
   },
   "devDependencies": {
     "@types/hapi__joi": "17.1.8",
-    "@types/string-argv": "^0.1.0",
     "dotenv": "16.0.1",
     "get-port": "^6.1.2",
     "joi": "17.6.0",

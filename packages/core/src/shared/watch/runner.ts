@@ -1,18 +1,18 @@
 import spawn from '@dite/utils/compiled/cross-spawn';
-import stringArgv from 'string-argv';
+import yArgs from '@dite/utils/compiled/yargs-parser';
 
 function runCommand(
-  fullCommand: any,
+  fullCommand: string,
   opts: {
     env?: any;
     cwd?: string;
   } = {},
 ) {
   if (fullCommand) {
-    const parts = stringArgv(fullCommand);
+    const { _: parts } = yArgs(fullCommand);
     const exec = parts[0];
-    const args = parts.splice(1);
-    return spawn(exec, args, {
+    const args = parts.slice(1);
+    return spawn(String(exec), args as string[], {
       stdio: 'inherit',
       cwd: opts.cwd,
       env: { ...process.env, ...opts.env },
@@ -21,7 +21,7 @@ function runCommand(
 }
 
 export function run(
-  command: any,
+  command: string,
   opts: {
     env?: any;
     cwd?: string;

@@ -8,14 +8,14 @@
   },
   "dependencies": {
     "@dite/server": "0.0.25",
-    "@nestjs/common": "9.0.1",
-    "@nestjs/core": "9.0.1",
-    "@nestjs/platform-express": "9.0.1",
+    "@nestjs/common": "^9.0.3",
+    "@nestjs/core": "^9.0.3",
+    "@nestjs/platform-express": "^9.0.3",
     "dite": "0.0.25",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "reflect-metadata": "0.1.13",
-    "rxjs": "7.5.5",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.6",
     "ts-loader": "^9.3.1"
   },
   "devDependencies": {
