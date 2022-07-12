@@ -22,6 +22,7 @@
   "scripts": {
     "bootstrap": "dite-scripts bootstrap",
     "build": "dite-scripts turbo --cmd build",
+    "build2": "dite-scripts turbo --cmd build2",
     "build:deps": "dite-scripts turbo --cmd build:deps",
     "clean": "dite-scripts clean",
     "format": "prettier --write .",

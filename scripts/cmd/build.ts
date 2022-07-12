@@ -4,7 +4,11 @@ import cpy from 'cpy';
 import type { Plugin } from 'esbuild';
 import { build } from 'esbuild';
 import path from 'path';
-import ts, { BuildOptions } from 'typescript';
+import ts, {
+  BuildOptions,
+  createCompilerHost,
+  ParsedCommandLine,
+} from 'typescript';
 
 type PickRequired<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
 
@@ -106,7 +110,23 @@ function getBuildMetadata(config: PickRequired<Config, 'cwd'>) {
     patterns: [...assetPatterns, `!**/*.{ts,js,tsx,jsx}`],
   };
 
-  return { outDir, esbuildOptions, assetsOptions };
+  return { outDir, esbuildOptions, assetsOptions, tsConfig };
+}
+
+async function buildTsDecorators(tsconfig: ParsedCommandLine) {
+  const host = createCompilerHost(tsconfig.options);
+  const program = ts.createProgram(
+    tsconfig.fileNames,
+    {
+      ...tsconfig.options,
+      emitDeclarationOnly: true,
+      declaration: true,
+    },
+    host,
+  );
+  program.emit();
+  // const res = program.emit()
+  // console.log('res', res)
 }
 
 async function buildSourceFiles(esbuildOptions: Partial<BuildOptions>) {
@@ -135,13 +155,15 @@ function copyNonSourceFiles({ baseDir, outDir, patterns }: AssetsOptions) {
     cwd: process.cwd(),
   };
 
-  const { outDir, esbuildOptions, assetsOptions } = getBuildMetadata(config);
+  const { outDir, esbuildOptions, assetsOptions, tsConfig } =
+    getBuildMetadata(config);
 
   if (clean) {
     rimraf.sync(outDir);
   }
 
   await Promise.all([
+    buildTsDecorators(tsConfig),
     buildSourceFiles(esbuildOptions),
     copyNonSourceFiles(assetsOptions),
   ]);

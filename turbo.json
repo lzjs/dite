@@ -6,6 +6,10 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
+    "build2": {
+      "dependsOn": ["^build2"],
+      "outputs": ["dist/**"]
+    },
     "build:deps": {
       "dependsOn": ["^build:deps"],
       "cache": false,

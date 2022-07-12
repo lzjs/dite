@@ -1,7 +1,5 @@
 import { ChildProcess, exec } from 'child_process';
 
-const psTree = require('ps-tree');
-
 let KILL_SIGNAL = '15'; // SIGTERM
 let hasPS = true;
 
