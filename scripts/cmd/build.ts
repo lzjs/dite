@@ -1,17 +1,18 @@
+import rimraf from '@dite/utils/compiled/rimraf';
+import yArgs from '@dite/utils/compiled/yargs-parser';
 import cpy from 'cpy';
 import type { Plugin } from 'esbuild';
 import { build } from 'esbuild';
 import path from 'path';
-import rimraf from 'rimraf';
 import ts, { BuildOptions } from 'typescript';
-import { hideBin } from 'yargs/helpers';
-import yargs from 'yargs/yargs';
-import 'zx/globals';
+
+type PickRequired<T, K extends keyof T> = Omit<T, K> & Required<Pick<T, K>>;
 
 export type Config = Partial<{
   outDir: string;
   clean?: boolean;
   tsConfigFile?: string;
+  cwd: string;
   esbuild: {
     entryPoints?: string[];
     minify?: boolean;
@@ -26,27 +27,23 @@ export type Config = Partial<{
   };
 }>;
 
-const cwd = process.cwd();
-const { argv } = yargs(hideBin(process.argv))
-  .option('config', {
-    describe: 'path to config file',
-    type: 'string',
-  })
-  .option('clean', {
-    describe: 'clean output directory before build',
-    type: 'boolean',
-  });
-
-function getTSConfig(_tsConfigFile = 'tsconfig.json') {
-  const tsConfigFile = ts.findConfigFile(cwd, ts.sys.fileExists, _tsConfigFile);
+function getTSConfig(opts: { cwd: string; tsConfigFile?: string }) {
+  const configPath = opts.tsConfigFile || 'tsconfig.json';
+  const tsConfigFile = ts.findConfigFile(
+    opts.cwd,
+    ts.sys.fileExists,
+    configPath,
+  );
   if (!tsConfigFile) {
-    throw new Error(`tsconfig.json not found in the current directory! ${cwd}`);
+    throw new Error(
+      `${tsConfigFile} not found in the current directory! ${opts.cwd}`,
+    );
   }
   const configFile = ts.readConfigFile(tsConfigFile, ts.sys.readFile);
   const tsConfig = ts.parseJsonConfigFileContent(
     configFile.config,
     ts.sys,
-    cwd,
+    opts.cwd,
   );
   return { tsConfig, tsConfigFile };
 }
@@ -73,21 +70,22 @@ function esBuildSourceMapOptions(tsConfig: TSConfig) {
   return sourceMap;
 }
 
-function getBuildMetadata(userConfig: Config) {
-  const { tsConfig, tsConfigFile } = getTSConfig(userConfig.tsConfigFile);
+function getBuildMetadata(config: PickRequired<Config, 'cwd'>) {
+  const { tsConfig, tsConfigFile } = getTSConfig({
+    cwd: config.cwd,
+    tsConfigFile: config.tsConfigFile,
+  });
 
-  const outDir = userConfig.outDir || tsConfig.options.outDir || 'dist';
+  const outDir = config.outDir || tsConfig.options.outDir || 'dist';
 
-  const esbuildEntryPoints = userConfig.esbuild?.entryPoints || [];
+  const esbuildEntryPoints = config.esbuild?.entryPoints || [];
   const srcFiles = [...tsConfig.fileNames, ...esbuildEntryPoints];
   const sourcemap = esBuildSourceMapOptions(tsConfig);
   const target =
-    userConfig.esbuild?.target ||
-    tsConfig?.raw?.compilerOptions?.target ||
-    'es6';
-  const minify = userConfig.esbuild?.minify || false;
-  const plugins = userConfig.esbuild?.plugins || [];
-  const format = userConfig.esbuild?.format || 'cjs';
+    config.esbuild?.target || tsConfig?.raw?.compilerOptions?.target || 'es6';
+  const minify = config.esbuild?.minify || false;
+  const plugins = config.esbuild?.plugins || [];
+  const format = config.esbuild?.format || 'cjs';
 
   const esbuildOptions: BuildOptions = {
     outdir: outDir,
@@ -100,11 +98,11 @@ function getBuildMetadata(userConfig: Config) {
     format,
   };
 
-  const assetPatterns = userConfig.assets?.filePatterns || ['**'];
+  const assetPatterns = config.assets?.filePatterns || ['**'];
 
   const assetsOptions = {
-    baseDir: userConfig.assets?.baseDir || 'src',
-    outDir: userConfig.assets?.outDir || outDir,
+    baseDir: config.assets?.baseDir || 'src',
+    outDir: config.assets?.outDir || outDir,
     patterns: [...assetPatterns, `!**/*.{ts,js,tsx,jsx}`],
   };
 
@@ -131,9 +129,11 @@ function copyNonSourceFiles({ baseDir, outDir, patterns }: AssetsOptions) {
 }
 
 (async () => {
-  const configFilename = <string>(await argv)?.config || 'etsc.config.js';
-  const clean = <boolean>(await argv)?.clean || false;
-  const config = {};
+  const args = yArgs(process.argv.slice(2));
+  const clean = args?.clean || false;
+  const config = {
+    cwd: process.cwd(),
+  };
 
   const { outDir, esbuildOptions, assetsOptions } = getBuildMetadata(config);
 
