@@ -16,7 +16,7 @@
   "license": "MIT",
   "author": {
     "name": "Zack",
-    "email": "mwl@live.com",
+    "email": "lorenx@163.com",
     "url": "https://github.com/loyep"
   },
   "main": "dist/index.js",
@@ -29,7 +29,7 @@
     "compiled"
   ],
   "scripts": {
-    "build": "pnpm tsc",
+    "build": "dite-scripts build",
     "build:deps": "pnpm pkg-compile",
     "dev": "pnpm build -- --watch"
   },

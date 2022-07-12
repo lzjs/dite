@@ -1,11 +1,11 @@
 {
-  "name": "@dite/server",
+  "name": "@dite/node",
   "version": "0.0.25",
-  "description": "@dite/server",
+  "description": "@dite/node",
   "keywords": [
     "dite"
   ],
-  "homepage": "https://github.com/ditejs/dite/tree/master/packages/server#readme",
+  "homepage": "https://github.com/ditejs/dite/tree/master/packages/node#readme",
   "bugs": {
     "url": "https://github.com/ditejs/dite/issues"
   },

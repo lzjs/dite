@@ -16,7 +16,7 @@
   "license": "MIT",
   "author": {
     "name": "Zack",
-    "email": "mwl@live.com",
+    "email": "lorenx@163.com",
     "url": "https://github.com/loyep"
   },
   "main": "dist/index.js",
@@ -29,13 +29,11 @@
     "compiled"
   ],
   "scripts": {
-    "build": "pnpm tsc",
+    "build": "dite-scripts build",
     "build:deps": "pnpm pkg-compile",
-    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist",
     "dev": "pnpm build -- --watch"
   },
   "dependencies": {
-    "@dite/cli": "0.0.25",
     "@dite/core": "0.0.25",
     "@dite/logger": "0.0.25",
     "@dite/preset-dite": "0.0.25",

@@ -1,5 +1,6 @@
 import 'zx/globals';
 import { getPkgs } from '../utils';
+
 (async () => {
   await $`pnpm i`;
   const ignore: string[] = [

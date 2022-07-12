@@ -8,6 +8,7 @@
     },
     "build:deps": {
       "dependsOn": ["^build:deps"],
+      "cache": false,
       "outputs": ["compiled/**"]
     },
     "dev": {
