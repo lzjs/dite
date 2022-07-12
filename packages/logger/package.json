@@ -26,8 +26,7 @@
     "compiled"
   ],
   "scripts": {
-    "build": "dite-scripts build",
-    "build2": "pnpm tsc",
+    "build": "pnpm tsc",
     "build:deps": "dite-scripts pkgCompile",
     "dev": "pnpm build -- --watch"
   },
