@@ -77,8 +77,8 @@
     "prettier": "^2.6.2",
     "prettier-plugin-organize-imports": "^3.0.0",
     "prettier-plugin-packagejson": "^2.2.18",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "resolve": "^1.22.1",
     "rimraf": "^3.0.2",
     "standard-version": "^9.5.0",
@@ -99,13 +99,15 @@
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
+        "@octokit/rest",
+        "@octokit/core",
+        "@octokit/plugin-paginate-rest",
         "react",
         "react-dom",
         "postcss",
         "webpack",
         "eslint",
-        "stylelint",
-        "lerna"
+        "stylelint"
       ]
     }
   }
