@@ -35,7 +35,6 @@
   },
   "dependencies": {
     "@dite/core": "0.0.25",
-    "@dite/logger": "0.0.25",
     "@dite/preset-dite": "0.0.25",
     "@dite/utils": "0.0.25",
     "@nestjs/common": "^9.0.2",

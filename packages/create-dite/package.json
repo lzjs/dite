@@ -22,7 +22,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "create-dite": "./dist/index.js"
+    "create-dite": "./bin/create-dite.js"
   },
   "files": [
     "dist",

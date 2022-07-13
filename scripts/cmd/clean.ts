@@ -1,5 +1,5 @@
 import rimraf from '@dite/utils/compiled/rimraf';
-import { join } from 'node:path';
+import { join } from 'path';
 import { eachPkg, getPkgs } from '../utils';
 
 export async function clean() {

@@ -28,9 +28,7 @@ TODO
 | [@dite/cli](packages/cli)                 | [![@dite/cli version](https://badgen.net/npm/v/@dite/cli)](packages/cli/CHANGELOG.md)                         |
 | [@dite/core](packages/core)               | [![@dite/core version](https://badgen.net/npm/v/@dite/core)](packages/core/CHANGELOG.md)                      |
 | [@dite/utils](packages/utils)             | [![@dite/utils version](https://badgen.net/npm/v/@dite/utils)](packages/utils/CHANGELOG.md)                   |
-| [@dite/logger](packages/logger)           | [![@dite/logger version](https://badgen.net/npm/v/@dite/logger)](packages/logger/CHANGELOG.md)                |
 | [@dite/server](packages/server)           | [![@dite/server version](https://badgen.net/npm/v/@dite/server)](packages/server/CHANGELOG.md)                |
-| [@dite/runtime](packages/runtime)         | [![@dite/runtime version](https://badgen.net/npm/v/@dite/runtime)](packages/runtime/CHANGELOG.md)             |
 | [@dite/preset-dite](packages/preset-dite) | [![@dite/preset-dite version](https://badgen.net/npm/v/@dite/preset-dite)](packages/preset-dite/CHANGELOG.md) |
 
 ## Contribution

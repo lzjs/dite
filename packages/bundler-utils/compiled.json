@@ -1,0 +1,35 @@
+{
+  "deps": [
+    "fast-glob",
+    "fs-extra",
+    "cross-spawn",
+    "chalk",
+    "lodash",
+    "yargs-parser",
+    "pirates",
+    "rimraf",
+    "prettier",
+    "esbuild",
+    "mrmime",
+    "resolve",
+    "chokidar",
+    "pino",
+    "debug",
+    "type-is",
+    "pkg-up",
+    "just-diff"
+  ],
+  "externals": {
+    "fs-extra": "$$LOCAL",
+    "resolve": "$$LOCAL",
+    "esbuild": "$LOCAL",
+    "chalk": "$$LOCAL",
+    "cross-spawn": "$$LOCAL",
+    "debug": "$$LOCAL",
+    "yargs-parser": "$$LOCAL",
+    "type-is": "$$LOCAL",
+    "pkg-up": "$$LOCAL",
+    "just-diff": "$$LOCAL",
+    "pirates": "$$LOCAL"
+  }
+}

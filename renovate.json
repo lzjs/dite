@@ -4,7 +4,7 @@
   "commitMessageExtra": "to {{newValue}}",
   "commitMessageTopic": "{{depName}}",
   "extends": ["config:base", ":preserveSemverRanges"],
-  "ignoreDeps": ["@types/react", "@types/react-dom", "zx", "chalk"],
+  "ignoreDeps": ["zx", "chalk"],
   "ignorePaths": ["fixtures", "test/"],
   "postUpdateOptions": ["yarnDedupeHighest"],
   "packageRules": [

@@ -1,16 +1,18 @@
 import spawn from '@dite/utils/compiled/cross-spawn';
+import glob from '@dite/utils/compiled/fast-glob';
 import fs from '@dite/utils/compiled/fs-extra';
 import type { SpawnSyncOptions } from 'child_process';
-import { join } from 'path';
+import { dirname, join } from 'path';
 import { packagesDir } from '../internal/const';
 
 export function getPkgs(opts?: { base?: string }): string[] {
-  const base = opts?.base || packagesDir;
-  return fs.readdirSync(base).filter((dir) => {
-    return (
-      !dir.startsWith('.') && fs.existsSync(join(base, dir, 'package.json'))
-    );
-  });
+  const cwd = opts?.base || packagesDir;
+  return glob
+    .sync('**/package.json', {
+      ignore: ['**/{node_modules,src,dist,compiled,templates,.turbo}/**'],
+      cwd,
+    })
+    .map(dirname);
 }
 
 export function eachPkg(
