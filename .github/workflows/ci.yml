@@ -58,22 +58,26 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-node${{ matrix.node-version }}-
 
-      - name: Install dependencies
-        run: pnpm i
-      - name: Test
-        run: pnpm jest
-
       # We use week in the turbo cache key to keep the cache from infinitely growing
       - name: Get cache expires mark
         id: get-week
         run: echo ::set-output name=WEEK::$(date +%U)
 
-      - run: pnpm build:deps
-        env:
-          CI: true
-          NODE_ENV: test
+      - name: Turbo Cache
+        id: turbo-cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-
+            turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-${{ github.ref_name }}-${{ steps.get-week.outputs.WEEK }}-
+
+      - name: Install dependencies
+        run: pnpm i
 
       - run: pnpm build
+      - run: pnpm test
         env:
           CI: true
           NODE_ENV: test
