@@ -99,9 +99,6 @@
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
-        "@octokit/rest",
-        "@octokit/core",
-        "@octokit/plugin-paginate-rest",
         "react",
         "react-dom",
         "postcss",
