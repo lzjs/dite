@@ -40,7 +40,7 @@
     "@types/prettier": "^2.6.3",
     "@types/resolve": "^1.20.2",
     "@types/rimraf": "^3.0.2",
-    "@types/semver": "7.3.9",
+    "@types/semver": "7.3.10",
     "@types/type-is": "^1.6.3",
     "@types/yargs-parser": "^21.0.0",
     "chalk": "^5.0.1",
@@ -63,7 +63,7 @@
     "prettier": "^2.7.1",
     "resolve": "^1.22.1",
     "rimraf": "^3.0.2",
-    "semver": "7.3.6",
+    "semver": "7.3.7",
     "type-is": "^1.6.18",
     "yargs-parser": "^21.0.1"
   },

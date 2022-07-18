@@ -70,7 +70,8 @@ export default (api: IApi) => {
       path: string;
       content?: string;
       tpl?: string;
-      format?: 'cjs' | 'esm' | null;
+      format?: esbuild.Format;
+      loader?: esbuild.Loader;
       tplPath?: string;
       context?: Record<string, string>;
       noPluginDir?: boolean;
@@ -126,7 +127,7 @@ export default (api: IApi) => {
         const res = esbuild.transformSync(content, {
           target: 'node14',
           format: opts.format,
-          loader: 'ts',
+          loader: opts.loader ?? 'ts',
         });
         content = res.code;
       }
