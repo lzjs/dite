@@ -1,6 +1,6 @@
 import { Env } from '@dite/core';
+import { fse } from '@dite/utils';
 import glob from '@dite/utils/compiled/fast-glob';
-import fsExtra from '@dite/utils/compiled/fs-extra';
 import esbuild from 'esbuild';
 import path from 'path';
 
@@ -17,17 +17,6 @@ export async function transpiler(sourceFiles: string[], buildDir: string) {
     incremental: true,
     format: 'cjs',
     tsconfig,
-    // watch: {
-    //   onRebuild(error) {
-    //     if (error) logger.error('Compile api routes failed: ', error);
-    //
-    //     // Reload API route modules
-    //     Object.keys(require.cache).forEach((modulePath) => {
-    //       if (modulePath.startsWith(buildFilePath))
-    //         delete require.cache[modulePath];
-    //     });
-    //   },
-    // },
   });
 }
 
@@ -77,7 +66,7 @@ export class Builder {
     if (res.outputFiles) {
       const files: string[] = [];
       res.outputFiles?.forEach((file) => {
-        fsExtra.writeFileSync(file.path, file.contents);
+        fse.writeFileSync(file.path, file.contents);
         delete require.cache[file.path];
         files.push(file.path);
       });

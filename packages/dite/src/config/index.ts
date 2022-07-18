@@ -1,6 +1,4 @@
-import { register } from '@dite/utils';
-import fs from '@dite/utils/compiled/fs-extra';
-import lodash from '@dite/utils/compiled/lodash';
+import { fse, lodash, register } from '@dite/utils';
 import esbuild from 'esbuild';
 import { configFiles } from '../constants';
 import { getAbsFiles } from './utils';
@@ -26,7 +24,7 @@ function getUserConfig(configFiles: string[]) {
   const files: string[] = [];
 
   for (const configFile of configFiles) {
-    if (fs.existsSync(configFile)) {
+    if (fse.existsSync(configFile)) {
       register.register({
         implementor: esbuild,
       });

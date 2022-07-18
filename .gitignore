@@ -113,7 +113,7 @@ dist
 **/.dite
 
 # Turbo
-.turbo
+.turbo/
 
 # Others
 SPEED_MEASURE.json

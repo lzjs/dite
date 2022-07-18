@@ -1,6 +1,5 @@
 import getPort from '@dite/core/compiled/get-port';
-import { chokidar, lodash, register } from '@dite/utils';
-import fs from '@dite/utils/compiled/fs-extra';
+import { chokidar, fse, lodash, register } from '@dite/utils';
 import { diff } from '@dite/utils/compiled/just-diff';
 import assert from 'assert';
 import esbuild from 'esbuild';
@@ -40,7 +39,7 @@ function getUserConfig(configFiles: string[]) {
   const files: string[] = [];
 
   for (const configFile of configFiles) {
-    if (fs.existsSync(configFile)) {
+    if (fse.existsSync(configFile)) {
       register.register({
         implementor: esbuild,
       });
@@ -163,7 +162,7 @@ export class Config {
     let mainConfigFile = null;
     for (const configFile of opts.defaultConfigFiles || configFiles) {
       const absConfigFile = path.join(opts.cwd, configFile);
-      if (fs.existsSync(absConfigFile)) {
+      if (fse.existsSync(absConfigFile)) {
         mainConfigFile = absConfigFile;
         break;
       }
@@ -218,7 +217,7 @@ export class Config {
     const files: string[] = [];
 
     for (const configFile of opts.configFiles) {
-      if (fs.existsSync(configFile)) {
+      if (fse.existsSync(configFile)) {
         register.register({
           implementor: esbuild,
         });

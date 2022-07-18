@@ -1,11 +1,4 @@
-import {
-  fsExtra,
-  lodash,
-  pkgUp,
-  register,
-  resolve,
-  winPath,
-} from '@dite/utils';
+import { fse, lodash, pkgUp, register, resolve, winPath } from '@dite/utils';
 import assert from 'assert';
 import esbuild from 'esbuild';
 import path from 'path';
@@ -51,7 +44,7 @@ export class Plugin {
     let isPkgEntry = false;
     const pkgJSONPath = pkgUp.pkgUpSync({ cwd: this.path })!;
     if (pkgJSONPath) {
-      pkg = fsExtra.readJSONSync(pkgJSONPath);
+      pkg = fse.readJSONSync(pkgJSONPath);
       isPkgEntry =
         winPath(
           path.join(path.dirname(pkgJSONPath), pkg.main || 'index.js'),
@@ -85,7 +78,7 @@ export class Plugin {
     isPkgEntry: boolean;
     pkgJSONPath: string | null;
   }) {
-    let id;
+    let id: string;
     if (opts.isPkgEntry) {
       id = opts.pkg!.name;
     } else if (winPath(this.path).startsWith(winPath(this.cwd))) {

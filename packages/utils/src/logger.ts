@@ -1,11 +1,11 @@
 import { join } from 'path';
 import pino from 'pino';
 import chalk from '../compiled/chalk';
-import fsExtra from '../compiled/fs-extra';
+import fse from '../compiled/fs-extra';
 
 const loggerDir = join(process.cwd(), 'node_modules/.cache/.dite/logger');
 const loggerPath = join(loggerDir, 'dite.log');
-fsExtra.mkdirpSync(loggerDir);
+fse.mkdirpSync(loggerDir);
 const customLevels = {
   ready: 31,
   event: 32,

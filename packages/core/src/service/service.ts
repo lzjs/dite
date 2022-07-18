@@ -1,5 +1,4 @@
-import { lodash, yParser } from '@dite/utils';
-import fs from '@dite/utils/compiled/fs-extra';
+import { fse, lodash, yParser } from '@dite/utils';
 import assert from 'assert';
 import { isAbsolute, join } from 'path';
 import {
@@ -28,14 +27,14 @@ export function getPkg({ cwd }: { cwd: string }) {
   let pkgPath = '';
   try {
     const filePath = join(cwd, 'package.json');
-    pkg = fs.readJSONSync(filePath);
+    pkg = fse.readJSONSync(filePath);
     pkgPath = filePath;
   } catch (_e) {
     // APP_ROOT
     if (cwd !== process.cwd()) {
       try {
         const filePath = join(process.cwd(), 'package.json');
-        pkg = fs.readJSONSync(filePath);
+        pkg = fse.readJSONSync(filePath);
         pkgPath = filePath;
       } catch (_e) {
         console.error(_e);
@@ -107,7 +106,10 @@ export class Service {
     this.cwd = opts.cwd;
     this.env = opts.env;
     this.opts = opts;
-    assert(fs.existsSync(this.cwd), `Invalid cwd ${this.cwd}, it's not found.`);
+    assert(
+      fse.existsSync(this.cwd),
+      `Invalid cwd ${this.cwd}, it's not found.`,
+    );
   }
 
   isPluginEnable(hook: Hook | string) {

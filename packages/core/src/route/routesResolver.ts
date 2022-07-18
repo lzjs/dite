@@ -47,11 +47,9 @@ export class RoutesResolver {
     routeIds.forEach((routeId) => {
       const parentId = '';
       const routePath: string | undefined = createRoutePath(
-        routeId.slice((parentId || 'pages').length + 1),
+        routeId.slice(parentId.length ? parentId.length + 1 : 0),
       );
-      // let fullPath = createRoutePath(routeId.slice(pageDirName.length + 1));
       const isIndexRoute = routeId.endsWith('/index');
-      // let uniqueRouteId = (fullPath || '') + (isIndexRoute ? '?index' : '');
       if (isIndexRoute) {
         const invalidChildRoutes = routeIds.filter(
           (id) => findParentRouteId(routeIds, id) === routeId,

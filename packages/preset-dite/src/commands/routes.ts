@@ -6,9 +6,9 @@ export default (api: IApi) => {
   api.registerCommand({
     name: 'routes',
     description: 'Routes',
-    fn() {
+    fn(args) {
       const router = new RoutesResolver({ cwd: path.join(api.cwd, 'app') });
-      const routes = router.getRoutes();
+      const routes = router.getRoutes('json');
       console.log(routes);
     },
   });

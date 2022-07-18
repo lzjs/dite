@@ -1,4 +1,4 @@
-import { fsExtra as fs, resolve } from '@dite/utils';
+import { fse, resolve } from '@dite/utils';
 import prettier from '@dite/utils/compiled/prettier';
 import path, { dirname, join } from 'path';
 import { IApi } from '../../types';
@@ -18,14 +18,6 @@ function resolveProjectDep(opts: { pkg: any; cwd: string; dep: string }) {
 }
 
 export default (api: IApi) => {
-  // const reactDOMPath =
-  //   resolveProjectDep({
-  //     pkg: api.pkg,
-  //     cwd: api.cwd,
-  //     dep: 'react-dom',
-  //   }) || dirname(require.resolve('react-dom/package.json'));
-  // const reactDOMVersion = require(join(reactDOMPath, 'package.json')).version;
-  // const isLT18 = !reactDOMVersion.startsWith('18.');
   const configDefaults: Record<string, any> = {
     externals: {},
     port: 3001,
@@ -68,10 +60,10 @@ export default (api: IApi) => {
 
   api.onStart(async () => {
     const distDir = path.join(api.cwd, '.dite');
-    await fs.mkdirp(distDir);
-    await fs.mkdirp(path.join(api.cwd, 'public'));
+    await fse.mkdirp(distDir);
+    await fse.mkdirp(path.join(api.cwd, 'public'));
 
-    fs.writeFileSync(
+    fse.writeFileSync(
       join(api.cwd, '.dite/config.js'),
       prettier.format(`module.exports = ${JSON.stringify(api.appData)}`, {
         parser: 'babel',

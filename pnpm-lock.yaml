@@ -155,7 +155,6 @@ importers:
       react-dom: ^18.2.0
       reflect-metadata: ^0.1.13
       rxjs: ^7.5.6
-      ts-loader: ^9.3.1
       tsconfig-paths: ^4.0.0
       typescript: ^4.7.4
     dependencies:
@@ -167,7 +166,6 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       reflect-metadata: 0.1.13
       rxjs: 7.5.6
-      ts-loader: 9.3.1_typescript@4.7.4
     devDependencies:
       '@types/express': 4.17.13
       '@types/node': 17.0.45
@@ -203,7 +201,6 @@ importers:
       react-dom: ^18.0.2
       reflect-metadata: ^0.1.13
       rxjs: ^7.5.6
-      ts-loader: ^9.3.1
       tsconfig-paths: ^4.0.0
       typescript: ^4.7.4
     dependencies:
@@ -215,9 +212,57 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       reflect-metadata: 0.1.13
       rxjs: 7.5.6
-      ts-loader: 9.3.1_typescript@4.7.4
     devDependencies:
       '@nestjs/cli': 9.0.0
+      '@types/express': 4.17.13
+      '@types/node': 17.0.45
+      '@types/react': 18.0.15
+      '@types/react-dom': 18.0.6
+      '@typescript-eslint/eslint-plugin': 5.30.6_2vt5mtrqleafs33qg2bhpmbaqm
+      '@typescript-eslint/parser': 5.30.6_4x5o4skxv6sl53vpwefgt23khm
+      eslint: 8.19.0
+      eslint-config-prettier: 8.5.0_eslint@8.19.0
+      eslint-plugin-prettier: 4.2.1_7uxdfn2xinezdgvmbammh6ev5i
+      prettier: 2.7.1
+      tsconfig-paths: 4.0.0
+      typescript: 4.7.4
+
+  examples/routes:
+    specifiers:
+      '@dite/nest': 0.0.25
+      '@nestjs/common': ^9.0.3
+      '@nestjs/core': ^9.0.3
+      '@types/express': ^4.17.13
+      '@types/node': ^17.0.24
+      '@types/react': ^18.0.0
+      '@types/react-dom': ^18.0.0
+      '@typescript-eslint/eslint-plugin': ^5.30.5
+      '@typescript-eslint/parser': ^5.30.5
+      dite: 0.0.25
+      eslint: ^8.19.0
+      eslint-config-prettier: ^8.5.0
+      eslint-plugin-prettier: ^4.2.1
+      prettier: ^2.6.2
+      react: ^18.0.2
+      react-dom: ^18.0.2
+      react-router: ^6.3.0
+      react-router-dom: ^6.3.0
+      reflect-metadata: ^0.1.13
+      rxjs: ^7.5.6
+      tsconfig-paths: ^4.0.0
+      typescript: ^4.7.4
+    dependencies:
+      '@dite/nest': link:../../packages/nest
+      '@nestjs/common': 9.0.3_j5hagqx4mwzscud4kyjdvubauy
+      '@nestjs/core': 9.0.3_juuodvksmdkbuombvw4ic54spm
+      dite: link:../../packages/dite
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.3.0_react@18.2.0
+      react-router-dom: 6.3.0_biqbaboplfbrettd7655fr4n2y
+      reflect-metadata: 0.1.13
+      rxjs: 7.5.6
+    devDependencies:
       '@types/express': 4.17.13
       '@types/node': 17.0.45
       '@types/react': 18.0.15
@@ -918,6 +963,13 @@ packages:
       '@babel/core': 7.18.6
       '@babel/helper-plugin-utils': 7.18.6
     dev: true
+
+  /@babel/runtime/7.18.9:
+    resolution: {integrity: sha512-lkqXDcvlFT5rvEjiu6+QYO+1GXrEHRo2LOtS7E4GtX5ESIZOgepqsZBVIj6Pv+a6zqsya9VCgiK1KAK4BvJDAw==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.13.9
+    dev: false
 
   /@babel/template/7.18.6:
     resolution: {integrity: sha512-JoDWzPe+wgBsTTgdnIma3iHNFC7YVJoPssVBDjiHfNlyt4YcunDtcDOUmfVDfCK5MfdsaIoX9PkijPhjH3nYUw==}
@@ -5954,6 +6006,12 @@ packages:
     dependencies:
       function-bind: 1.1.1
 
+  /history/5.3.0:
+    resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
+    dependencies:
+      '@babel/runtime': 7.18.9
+    dev: false
+
   /hosted-git-info/2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: true
@@ -8647,6 +8705,35 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
+  /react-router-dom/6.3.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw==}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      history: 5.3.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.3.0_react@18.2.0
+    dev: false
+
+  /react-router/6.3.0_react@18.2.0:
+    resolution: {integrity: sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ==}
+    peerDependencies:
+      react: '>=16.8'
+    peerDependenciesMeta:
+      react:
+        optional: true
+    dependencies:
+      history: 5.3.0
+      react: 18.2.0
+    dev: false
+
   /react/18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
     engines: {node: '>=0.10.0'}
@@ -8808,6 +8895,10 @@ packages:
 
   /reflect-metadata/0.1.13:
     resolution: {integrity: sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==}
+
+  /regenerator-runtime/0.13.9:
+    resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: false
 
   /regexp.prototype.flags/1.4.3:
     resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==}
@@ -9801,23 +9892,6 @@ packages:
       semver: 7.3.7
       typescript: 4.7.4
       webpack: 5.73.0_esbuild@0.14.49
-    dev: false
-
-  /ts-loader/9.3.1_typescript@4.7.4:
-    resolution: {integrity: sha512-OkyShkcZTsTwyS3Kt7a4rsT/t2qvEVQuKCTg4LJmpj9fhFR7ukGdZwV6Qq3tRUkqcXtfGpPR7+hFKHCG/0d3Lw==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      typescript: '*'
-      webpack: ^5.0.0
-    peerDependenciesMeta:
-      webpack:
-        optional: true
-    dependencies:
-      chalk: 4.1.2
-      enhanced-resolve: 5.10.0
-      micromatch: 4.0.5
-      semver: 7.3.7
-      typescript: 4.7.4
     dev: false
 
   /ts-node/10.8.2_x2utdhayajzrh747hktprshhby:

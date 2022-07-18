@@ -1,6 +1,6 @@
 import { addUnWatch, run, unwatch, watch } from '@dite/core';
 import getPort from '@dite/core/compiled/get-port';
-import { fsExtra, lodash, logger } from '@dite/utils';
+import { fse, lodash, logger } from '@dite/utils';
 import esbuild from 'esbuild';
 import path from 'path';
 import { buildDir, Builder } from '../../bundles/esbuild/build';
@@ -64,8 +64,8 @@ PORT=3001 dite dev
 `,
     async fn() {
       const pkgPath = path.join(api.cwd, 'package.json');
-      const pkg = fsExtra.readJSONSync(pkgPath);
-      const code = fsExtra.readFileSync(
+      const pkg = fse.readJSONSync(pkgPath);
+      const code = fse.readFileSync(
         path.join(__dirname, `../../../templates/${templateNames(pkg)}`),
         'utf8',
       );
@@ -74,10 +74,7 @@ PORT=3001 dite dev
         loader: 'ts',
         format: 'cjs',
       });
-      fsExtra.writeFileSync(
-        path.join(api.cwd, '.dite/dite.server.js'),
-        res.code,
-      );
+      fse.writeFileSync(path.join(api.cwd, '.dite/dite.server.js'), res.code);
       let now = Date.now();
       const builder = await buildDir({
         dir: path.join(api.cwd, 'server'),

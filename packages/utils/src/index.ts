@@ -1,6 +1,6 @@
 import * as chokidar from '../compiled/chokidar';
 import debug from '../compiled/debug';
-import fsExtra from '../compiled/fs-extra';
+import fse from '../compiled/fs-extra';
 import lodash from '../compiled/lodash';
 import * as pkgUp from '../compiled/pkg-up';
 import resolve from '../compiled/resolve';
@@ -18,7 +18,7 @@ export {
   yParser,
   pkgUp,
   lodash,
-  fsExtra,
+  fse,
   resolve,
   register,
   compatRequire,

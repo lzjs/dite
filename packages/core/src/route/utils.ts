@@ -3,7 +3,6 @@ import path from 'path';
 const escapeStart = '[';
 const escapeEnd = ']';
 
-// TODO: Cleanup and write some tests for this function
 export function createRoutePath(partialRouteId: string): string | undefined {
   let result = '';
   let rawSegmentBuffer = '';

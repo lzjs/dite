@@ -1,5 +1,5 @@
 import { Service as CoreService } from '@dite/core';
-import fs from '@dite/utils/compiled/fs-extra';
+import { fse } from '@dite/utils';
 import path from 'path';
 import { configFiles } from '../constants';
 import { getCwd } from './cwd';
@@ -16,9 +16,9 @@ export class Service extends CoreService {
       frameworkName: 'dite',
       presets: [require.resolve('@dite/preset-dite'), ...(opts?.presets || [])],
       plugins: [
-        fs.existsSync(path.join(cwd, 'plugin.ts')) &&
+        fse.existsSync(path.join(cwd, 'plugin.ts')) &&
           path.join(cwd, 'plugin.ts'),
-        fs.existsSync(path.join(cwd, 'plugin.js')) &&
+        fse.existsSync(path.join(cwd, 'plugin.js')) &&
           path.join(cwd, 'plugin.js'),
       ].filter(Boolean),
     });

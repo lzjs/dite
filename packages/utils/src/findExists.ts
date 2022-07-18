@@ -1,4 +1,4 @@
-import fs from '../compiled/fs-extra';
+import fse from '../compiled/fs-extra';
 
 /**
  * Find first already exists file.
@@ -7,7 +7,7 @@ import fs from '../compiled/fs-extra';
  */
 export const findExists = (files: string[]): string | false => {
   for (const file of files) {
-    if (fs.existsSync(file) && fs.statSync(file).isFile()) {
+    if (fse.existsSync(file) && fse.statSync(file).isFile()) {
       return file;
     }
   }
