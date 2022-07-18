@@ -20,7 +20,7 @@
     "url": "https://github.com/loyep"
   },
   "main": "dist/index.js",
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "bin": {
     "dite": "bin/dite.js"
   },

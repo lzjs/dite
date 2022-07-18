@@ -512,14 +512,12 @@ importers:
     specifiers:
       '@dite/bundler-webpack': 0.0.25
       '@dite/core': 0.0.25
-      cross-spawn: ^7.0.3
-      fast-glob: ^3.2.11
+      es-module-lexer: 0.10.5
     dependencies:
       '@dite/bundler-webpack': link:../bundler-webpack
       '@dite/core': link:../core
     devDependencies:
-      cross-spawn: 7.0.3
-      fast-glob: 3.2.11
+      es-module-lexer: 0.10.5
 
   packages/react:
     specifiers:
@@ -564,6 +562,7 @@ importers:
       '@types/debug': ^4.1.7
       '@types/fs-extra': ^9.0.13
       '@types/lodash': ^4.14.182
+      '@types/mustache': ^4.1.2
       '@types/prettier': ^2.6.3
       '@types/resolve': ^1.20.2
       '@types/rimraf': ^3.0.2
@@ -579,9 +578,11 @@ importers:
       esbuild: ^0.14.48
       fast-glob: ^3.2.11
       fs-extra: ^10.1.0
+      import-lazy: 4.0.0
       just-diff: ^5.0.3
       lodash: ^4.17.21
       mrmime: ^1.0.1
+      mustache: ^4.2.0
       pino: ^8.1.0
       pirates: ^4.0.5
       pkg-up: ^4.0.0
@@ -596,6 +597,7 @@ importers:
       '@types/debug': 4.1.7
       '@types/fs-extra': 9.0.13
       '@types/lodash': 4.14.182
+      '@types/mustache': 4.1.2
       '@types/prettier': 2.6.3
       '@types/resolve': 1.20.2
       '@types/rimraf': 3.0.2
@@ -611,9 +613,11 @@ importers:
       esbuild: 0.14.49
       fast-glob: 3.2.11
       fs-extra: 10.1.0
+      import-lazy: 4.0.0
       just-diff: 5.0.3
       lodash: 4.17.21
       mrmime: 1.0.1
+      mustache: 4.2.0
       pino: 8.1.0
       pirates: 4.0.5
       pkg-up: 4.0.0
@@ -2922,6 +2926,10 @@ packages:
 
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
+    dev: true
+
+  /@types/mustache/4.1.2:
+    resolution: {integrity: sha512-c4OVMMcyodKQ9dpwBwh3ofK9P6U9ZktKU9S+p33UqwMNN1vlv2P0zJZUScTshnx7OEoIIRcCFNQ904sYxZz8kg==}
     dev: true
 
   /@types/node-fetch/2.6.2:
@@ -6159,6 +6167,11 @@ packages:
       resolve-from: 4.0.0
     dev: true
 
+  /import-lazy/4.0.0:
+    resolution: {integrity: sha512-rKtvo6a868b5Hu3heneU+L4yEQ4jYKLtjpnPeUdK7h0yzXGmyBTypknlkCvHFBqfX9YlorEiMM6Dnq/5atfHkw==}
+    engines: {node: '>=8'}
+    dev: true
+
   /import-local/3.1.0:
     resolution: {integrity: sha512-ASB07uLtnDs1o6EHjKpX34BKYDSqnFerfTOJL2HvMqF70LnxpjkzDB8J44oT9pu4AMPkQwf8jl6szgvNd2tRIg==}
     engines: {node: '>=8'}
@@ -7702,6 +7715,11 @@ packages:
       array-union: 2.1.0
       arrify: 2.0.1
       minimatch: 3.1.2
+    dev: true
+
+  /mustache/4.2.0:
+    resolution: {integrity: sha512-71ippSywq5Yb7/tVYyGbkBggbU8H3u5Rz56fH60jGFgr8uHwxs+aSKeqmluIVzM0m0kB7xQjKS6qPfd0b2ZoqQ==}
+    hasBin: true
     dev: true
 
   /mute-stream/0.0.8:

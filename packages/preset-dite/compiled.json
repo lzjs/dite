@@ -1,3 +1,6 @@
 {
-  "deps": []
+  "deps": ["es-module-lexer"],
+  "externals": {
+    "es-module-lexer": "$$LOCAL"
+  }
 }

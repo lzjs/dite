@@ -4,7 +4,7 @@
   "scripts": {
     "build": "dite build",
     "dev": "dite dev",
-    "routes": "dite routes",
+    "routes": "dite routes --type=raw",
     "start": "dite start"
   },
   "dependencies": {

@@ -26,7 +26,7 @@ export class Service extends CoreService {
 
   public runCommand(name: string, args?: any): Promise<void> {
     return this.run({
-      ...args,
+      args,
       name,
     });
   }

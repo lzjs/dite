@@ -1,5 +1,5 @@
 export * from './config';
-export { formatRoutes, getRoutes, RoutesResolver } from './route';
+export { RoutesResolver } from './route';
 export * from './service';
 export * from './service/pluginApi';
 export * from './shared/watch';

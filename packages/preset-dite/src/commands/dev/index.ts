@@ -1,10 +1,10 @@
 import { addUnWatch, run, unwatch, watch } from '@dite/core';
 import getPort from '@dite/core/compiled/get-port';
 import { fse, lodash, logger } from '@dite/utils';
-import esbuild from 'esbuild';
 import path from 'path';
 import { buildDir, Builder } from '../../bundles/esbuild/build';
-import { IApi } from '../../types';
+import { TEMPLATES_DIR } from '../../constants';
+import type { IApi } from '../../types';
 
 const startServer = (
   builder: Builder,
@@ -69,12 +69,13 @@ PORT=3001 dite dev
         path.join(__dirname, `../../../templates/${templateNames(pkg)}`),
         'utf8',
       );
-      const res = await esbuild.transform(code, {
-        target: 'node14',
-        loader: 'ts',
+      api.writeTmpFile({
+        noPluginDir: true,
+        path: 'dite.server.js',
+        tplPath: path.join(TEMPLATES_DIR, templateNames(pkg)),
         format: 'cjs',
+        context: {},
       });
-      fse.writeFileSync(path.join(api.cwd, '.dite/dite.server.js'), res.code);
       let now = Date.now();
       const builder = await buildDir({
         dir: path.join(api.cwd, 'server'),

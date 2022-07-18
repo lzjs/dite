@@ -27,9 +27,11 @@ TODO
 | [dite](packages/dite)                     | [![dite version](https://badgen.net/npm/v/dite)](packages/dite/CHANGELOG.md)                                  |
 | [@dite/cli](packages/cli)                 | [![@dite/cli version](https://badgen.net/npm/v/@dite/cli)](packages/cli/CHANGELOG.md)                         |
 | [@dite/core](packages/core)               | [![@dite/core version](https://badgen.net/npm/v/@dite/core)](packages/core/CHANGELOG.md)                      |
-| [@dite/utils](packages/utils)             | [![@dite/utils version](https://badgen.net/npm/v/@dite/utils)](packages/utils/CHANGELOG.md)                   |
-| [@dite/server](packages/server)           | [![@dite/server version](https://badgen.net/npm/v/@dite/server)](packages/server/CHANGELOG.md)                |
 | [@dite/preset-dite](packages/preset-dite) | [![@dite/preset-dite version](https://badgen.net/npm/v/@dite/preset-dite)](packages/preset-dite/CHANGELOG.md) |
+| [@dite/utils](packages/utils)             | [![@dite/utils version](https://badgen.net/npm/v/@dite/utils)](packages/utils/CHANGELOG.md)                   |
+| [@dite/node](packages/node)               | [![@dite/node version](https://badgen.net/npm/v/@dite/node)](packages/node/CHANGELOG.md)                      |
+| [@dite/nest](packages/nest)               | [![@dite/nest version](https://badgen.net/npm/v/@dite/nest)](packages/nest/CHANGELOG.md)                      |
+| [@dite/react](packages/react)             | [![@dite/react version](https://badgen.net/npm/v/@dite/react)](packages/react/CHANGELOG.md)                   |
 
 ## Contribution
 

@@ -104,14 +104,15 @@ export type IApi = PluginAPI &
     //   origin: Record<string, any>;
     // }>;
     restartServer: () => void;
-    // writeTmpFile: (opts: {
-    //   content?: string;
-    //   context?: Record<string, any>;
-    //   noPluginDir?: boolean;
-    //   path: string;
-    //   tpl?: string;
-    //   tplPath?: string;
-    // }) => void;
+    writeTmpFile: (opts: {
+      content?: string;
+      context?: Record<string, any>;
+      format?: 'cjs' | 'esm';
+      noPluginDir?: boolean;
+      path: string;
+      tpl?: string;
+      tplPath?: string;
+    }) => void;
   };
 
 export enum EnableBy {

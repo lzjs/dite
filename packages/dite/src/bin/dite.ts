@@ -21,7 +21,7 @@ export async function run() {
       version: ['v'],
       help: ['h'],
     },
-    boolean: ['version', 'json', 'debug'],
+    boolean: ['version', 'debug'],
   });
   const command = args._[0];
   if (command === 'dev') {

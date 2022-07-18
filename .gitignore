@@ -121,3 +121,6 @@ SPEED_MEASURE.json
 # Dite
 /examples/*/.dite
 !**/complied/*
+
+
+.DS_Store

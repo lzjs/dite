@@ -1,2 +1,2 @@
-**/compiled/** linguist-vendored
+**/compiled/** -text
 .husky/* linguist-vendored

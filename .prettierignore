@@ -8,4 +8,8 @@ fixtures
 *.yaml
 *.less
 .turbo
-examples/**/storage/logs
+.dite
+lerna.json
+**/__temp__/**
+test/**/out/**
+pnpm-lock.yaml

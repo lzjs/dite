@@ -324,7 +324,6 @@ export class Service {
     this.appData = await this.applyPlugins({
       key: 'modifyAppData',
       initialValue: {
-        // base
         cwd: this.cwd,
         pkg,
         pkgPath,
@@ -332,22 +331,10 @@ export class Service {
         presets,
         name,
         args,
-        // config
         userConfig: this.userConfig,
         mainConfigFile: configManager.mainConfigFile,
         config,
         defaultConfig: defaultConfig,
-        // TODO
-        // moduleGraph,
-        // routes,
-        // npmClient,
-        // nodeVersion,
-        // gitInfo,
-        // gitBranch,
-        // debugger info,
-        // devPort,
-        // devHost,
-        // env
       },
     });
     // applyPlugin onCheck
