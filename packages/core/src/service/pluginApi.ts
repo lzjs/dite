@@ -144,7 +144,11 @@ export class PluginAPI {
         );
         plugin.type = PluginType.plugin;
         plugin.enableBy = plugin.enableBy || EnableBy.register;
-        plugin.apply = plugin.apply || (() => () => {});
+        plugin.apply =
+          plugin.apply ||
+          (() => () => {
+            //
+          });
         plugin.config = plugin.config || {};
         plugin.time = { hooks: {} };
         return plugin;

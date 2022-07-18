@@ -118,4 +118,6 @@ dist
 # Others
 SPEED_MEASURE.json
 
+# Dite
+/examples/*/.dite
 !**/complied/*

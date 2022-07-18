@@ -25,7 +25,7 @@ import { Plugin, PluginAPI } from './pluginApi';
 export function getPkg({ cwd }: { cwd: string }) {
   // get pkg from package.json
   let pkg: Record<string, string | Record<string, any>> = {};
-  let pkgPath: string = '';
+  let pkgPath = '';
   try {
     const filePath = join(cwd, 'package.json');
     pkg = fs.readJSONSync(filePath);
@@ -37,7 +37,9 @@ export function getPkg({ cwd }: { cwd: string }) {
         const filePath = join(process.cwd(), 'package.json');
         pkg = fs.readJSONSync(filePath);
         pkgPath = filePath;
-      } catch (_e) {}
+      } catch (_e) {
+        console.error(_e);
+      }
     }
   }
   return { pkg, pkgPath: pkgPath || join(cwd, 'package.json') };
@@ -53,7 +55,7 @@ interface IOpts {
 }
 
 export class Service {
-  name: string = '';
+  name = '';
   cwd: string;
   config: Record<string, any> = {};
   appData: {
@@ -70,7 +72,7 @@ export class Service {
   } = {};
   args: yParser.Arguments = { _: [], $0: '' };
   pluginMethods: Record<string, { plugin: Plugin; fn: Function }> = {};
-  pkgPath: string = '';
+  pkgPath = '';
   commands: Record<string, Command> = {};
   pkg: {
     name?: string;
@@ -200,7 +202,7 @@ export class Service {
         service: this,
       },
     });
-    let ret = await opts.plugin.apply()(proxyPluginAPI);
+    const ret = await opts.plugin.apply()(proxyPluginAPI);
     this.keyToPluginMap[opts.plugin.key] = opts.plugin;
     if (ret?.presets) {
       ret.presets = ret.presets.map(
@@ -263,7 +265,7 @@ export class Service {
     this.paths = paths;
 
     // resolve initial presets and plugins
-    const { plugins, presets } = Plugin.getPluginsAndPresets({
+    const { plugins, presets = [] } = Plugin.getPluginsAndPresets({
       cwd: this.cwd,
       pkg,
       plugins: this.opts.plugins || [],
@@ -275,17 +277,23 @@ export class Service {
     });
     const presetPlugins: Plugin[] = [];
     while (presets.length) {
-      await this.initPreset({
-        preset: presets.shift()!,
-        presets,
-        plugins: presetPlugins,
-      });
+      const preset = presets.shift();
+      if (preset) {
+        await this.initPreset({
+          preset,
+          presets,
+          plugins: presetPlugins,
+        });
+      }
     }
     plugins.unshift(...presetPlugins);
 
     this.stage = ServiceStage.initPlugins;
     while (plugins.length) {
-      await this.initPlugin({ plugin: plugins.shift()!, plugins });
+      const plugin = plugins.shift();
+      if (plugin) {
+        await this.initPlugin({ plugin, plugins });
+      }
     }
     const command = this.commands[name];
     assert(command, `Invalid command ${name}, it's not registered.`);
@@ -393,15 +401,15 @@ export class Service {
       }
     }
     switch (type) {
-      case ApplyPluginsType.add:
+      case ApplyPluginsType.add: {
         assert(
           !('initialValue' in opts) || Array.isArray(opts.initialValue),
           `applyPlugins failed, opts.initialValue must be Array if opts.type is add.`,
         );
-        const tAdd = new AsyncSeriesWaterfallHook(['memo']);
+        const asyncHook = new AsyncSeriesWaterfallHook(['memo']);
         for (const hook of hooks) {
           if (!this.isPluginEnable(hook)) continue;
-          tAdd.tapPromise(
+          asyncHook.tapPromise(
             {
               name: hook.plugin.key,
               stage: hook.stage || 0,
@@ -418,8 +426,9 @@ export class Service {
             },
           );
         }
-        return tAdd.promise(opts.initialValue || []) as Promise<T>;
-      case ApplyPluginsType.modify:
+        return asyncHook.promise(opts.initialValue || []) as Promise<T>;
+      }
+      case ApplyPluginsType.modify: {
         const tModify = new AsyncSeriesWaterfallHook(['memo']);
         for (const hook of hooks) {
           if (!this.isPluginEnable(hook)) continue;
@@ -441,7 +450,8 @@ export class Service {
           );
         }
         return tModify.promise(opts.initialValue) as Promise<T>;
-      case ApplyPluginsType.event:
+      }
+      case ApplyPluginsType.event: {
         if (opts.sync) {
           const tEvent = new SyncWaterfallHook(['_']);
           hooks.forEach((hook) => {
@@ -487,6 +497,7 @@ export class Service {
           );
         }
         return tEvent.promise(1) as Promise<T>;
+      }
       default:
         throw new Error(
           `applyPlugins failed, type is not defined or is not matched, got ${opts.type}.`,
@@ -557,5 +568,5 @@ export interface IServicePluginAPI {
   ServiceStage: typeof ServiceStage;
 
   registerPresets: (presets: any[]) => void;
-  registerPlugins: (plugins: (Plugin | {})[]) => void;
+  registerPlugins: (plugins: (Plugin | Record<string, any>)[]) => void;
 }

@@ -3,17 +3,14 @@
   "private": true,
   "scripts": {
     "build": "nest build",
-    "build2": "dite build --no-clean=true",
-    "dev": "SPEED_MEASURE=2 dite dev",
+    "dev": "dite dev",
     "routes": "dite routes",
-    "start": "dite start",
-    "v2": "dite version2"
+    "start": "dite start"
   },
   "dependencies": {
-    "@dite/server": "0.0.25",
+    "@dite/nest": "0.0.25",
     "@nestjs/common": "^9.0.3",
     "@nestjs/core": "^9.0.3",
-    "@nestjs/platform-express": "^9.0.3",
     "dite": "0.0.25",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

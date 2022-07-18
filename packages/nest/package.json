@@ -1,0 +1,57 @@
+{
+  "name": "@dite/nest",
+  "version": "0.0.25",
+  "description": "@dite/server",
+  "keywords": [
+    "dite"
+  ],
+  "homepage": "https://github.com/ditejs/dite/tree/master/packages/nest#readme",
+  "bugs": {
+    "url": "https://github.com/ditejs/dite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditejs/dite.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Zack",
+    "email": "lorenx@163.com",
+    "url": "https://github.com/loyep"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "compiled"
+  ],
+  "scripts": {
+    "build": "pnpm tsc",
+    "build:deps": "dite-scripts pkgCompile",
+    "dev": "pnpm build -- --watch"
+  },
+  "dependencies": {
+    "@dite/core": "0.0.25",
+    "@dite/node": "0.0.25",
+    "compression": "^1.7.4"
+  },
+  "devDependencies": {
+    "@nestjs/common": "9.0.1",
+    "@nestjs/core": "9.0.1",
+    "@nestjs/platform-express": "^9.0.0",
+    "@types/compression": "^1.7.2",
+    "@types/express": "^4.17.13",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.5"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^8.4.7 || ^9.0.0",
+    "@nestjs/core": "^8.4.7 || ^9.0.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

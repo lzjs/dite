@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "bin": {
-    "dite-scripts": "index.js"
+    "dite-scripts": "bin/dite-scripts.js"
   }
 }

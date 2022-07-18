@@ -11,9 +11,9 @@ export function createRoutePath(partialRouteId: string): string | undefined {
   let inEscapeSequence = 0;
   let skipSegment = false;
   for (let i = 0; i < partialRouteId.length; i++) {
-    let char = partialRouteId.charAt(i);
-    let lastChar = i > 0 ? partialRouteId.charAt(i - 1) : undefined;
-    let nextChar =
+    const char = partialRouteId.charAt(i);
+    const lastChar = i > 0 ? partialRouteId.charAt(i - 1) : undefined;
+    const nextChar =
       i < partialRouteId.length - 1 ? partialRouteId.charAt(i + 1) : undefined;
 
     const isNewEscapeSequence = () => {

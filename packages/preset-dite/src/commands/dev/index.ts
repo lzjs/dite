@@ -30,7 +30,7 @@ const startServer = (
     unwatch = runServer();
   }, 150);
   const watcher = watch({
-    path: path.join(opts.cwd, 'api'),
+    path: path.join(opts.cwd, 'server'),
     onChange: async (event: string, path: string) => {
       logger.debug(`[ Dite ] Auto reload. [${event}] ${path}`);
       if (['change'].includes(event)) {
@@ -45,6 +45,13 @@ const startServer = (
   };
 };
 
+const templateNames = (pkg: any) => {
+  if (pkg.dependencies['@dite/nest']) {
+    return 'dite.nest.tpl';
+  }
+  return 'dite.server.tpl';
+};
+
 export default (api: IApi) => {
   api.registerCommand({
     name: 'dev',
@@ -57,8 +64,9 @@ PORT=3001 dite dev
 `,
     async fn() {
       const pkgPath = path.join(api.cwd, 'package.json');
+      const pkg = fsExtra.readJSONSync(pkgPath);
       const code = fsExtra.readFileSync(
-        path.join(__dirname, '../../../templates/dite.server.tpl'),
+        path.join(__dirname, `../../../templates/${templateNames(pkg)}`),
         'utf8',
       );
       const res = await esbuild.transform(code, {
@@ -72,7 +80,8 @@ PORT=3001 dite dev
       );
       let now = Date.now();
       const builder = await buildDir({
-        dir: path.join(api.cwd, 'api'),
+        dir: path.join(api.cwd, 'server'),
+        cwd: api.cwd,
         env: api.env,
       });
       console.log(`[ Dite ] Build time: ${Date.now() - now}ms`);

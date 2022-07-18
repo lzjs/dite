@@ -9,7 +9,8 @@ export default (api: IApi) => {
     description: 'build app for production',
     fn: async function ({ args }) {
       await buildDir({
-        dir: path.join(process.cwd(), 'api'),
+        dir: path.join(api.cwd, 'server'),
+        cwd: api.cwd,
         env: Env.production,
       });
     },

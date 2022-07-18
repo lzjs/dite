@@ -1,0 +1,39 @@
+import fs from 'fs';
+
+function removeComment(msg: string) {
+  return msg.replace(/^#.*[\n\r]*/gm, '');
+}
+
+async function main() {
+  const msgPath = process.argv[2];
+  if (!msgPath) process.exit();
+
+  const msg = removeComment(fs.readFileSync(msgPath, 'utf-8').trim());
+  const commitRE =
+    /^(revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release|dep|example|Merge)(\(.+\))?: .{1,50}/;
+
+  if (!commitRE.test(msg)) {
+    return Promise.reject(
+      new Error(
+        `  ${chalk.bgRed.white(' ERROR ')} ${chalk.red(
+          `invalid commit message format.`,
+        )}\n\n` +
+          chalk.red(
+            `  Proper commit message format is required for automated changelog generation. Examples:\n\n`,
+          ) +
+          `    ${chalk.green(
+            `feat(bundler-webpack): add 'comments' option`,
+          )}\n` +
+          `    ${chalk.green(
+            `fix(core): handle events on blur (close #28)`,
+          )}\n\n` +
+          chalk.red(`  See .github/commit-convention.md for more details.\n`),
+      ),
+    );
+  }
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

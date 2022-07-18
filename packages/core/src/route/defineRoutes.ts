@@ -1,1 +1,3 @@
-export function defineRoutes() {}
+export function defineRoutes() {
+  //
+}

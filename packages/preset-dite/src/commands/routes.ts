@@ -1,4 +1,5 @@
-import { formatRoutes } from '@dite/core';
+import { RoutesResolver } from '@dite/core';
+import path from 'path';
 import { IApi } from '../types';
 
 export default (api: IApi) => {
@@ -6,9 +7,9 @@ export default (api: IApi) => {
     name: 'routes',
     description: 'Routes',
     fn() {
-      const routes = formatRoutes({}, 'jsx');
+      const router = new RoutesResolver({ cwd: path.join(api.cwd, 'app') });
+      const routes = router.getRoutes();
       console.log(routes);
-      return routes;
     },
   });
 };

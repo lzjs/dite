@@ -17,7 +17,7 @@ import { addExt, getAbsFiles } from './utils';
 
 type ISchema = Record<string, any>;
 
-type IOnChangeTypes = Record<string, string | Function>;
+type IOnChangeTypes = Record<string, string | (() => Promise<void> | void)>;
 
 export interface IConfig {
   port: number;
@@ -37,7 +37,7 @@ export function defineConfig(options: Partial<IConfig>): Partial<IConfig> {
 
 function getUserConfig(configFiles: string[]) {
   let config = {};
-  let files: string[] = [];
+  const files: string[] = [];
 
   for (const configFile of configFiles) {
     if (fs.existsSync(configFile)) {
@@ -63,7 +63,7 @@ function getUserConfig(configFiles: string[]) {
 }
 
 export async function loadConfig(): Promise<IConfig> {
-  const { config, files } = getUserConfig(
+  const { config } = getUserConfig(
     getAbsFiles({
       files: configFiles,
       cwd: process.cwd(),
@@ -215,7 +215,7 @@ export class Config {
 
   static getUserConfig(opts: { configFiles: string[] }) {
     let config = {};
-    let files: string[] = [];
+    const files: string[] = [];
 
     for (const configFile of opts.configFiles) {
       if (fs.existsSync(configFile)) {

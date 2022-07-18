@@ -6,10 +6,10 @@ export interface RouteItemOptions {
 }
 
 export class RouteItem {
-  protected path: string;
-  protected id: string;
-  protected file: string;
-  protected index?: boolean;
+  public path: string;
+  public id: string;
+  public file: string;
+  public index?: boolean;
 
   constructor(options: RouteItemOptions) {
     const { path, id, file, index } = options;

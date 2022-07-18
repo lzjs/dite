@@ -32,22 +32,20 @@ export async function transpiler(sourceFiles: string[], buildDir: string) {
 }
 
 const apiOutputPath = '.dite/server';
-const apiOutputPath2 = '.dite/server2';
 
 interface BuilderOptions {
   dir: string;
   env: Env;
+  cwd: string;
 }
 
 export class Builder {
   private readonly opts: BuilderOptions;
   protected readonly serverOutputPath: string;
-  protected readonly serverOutputPath2: string;
 
   constructor(opts: BuilderOptions) {
     this.opts = opts;
-    this.serverOutputPath = path.join(process.cwd(), apiOutputPath);
-    this.serverOutputPath2 = path.join(process.cwd(), apiOutputPath2);
+    this.serverOutputPath = path.join(this.opts.cwd, apiOutputPath);
   }
 
   public async buildAll() {
@@ -62,7 +60,7 @@ export class Builder {
     files: string[] | string,
     opts: { isFirstTime: boolean } = { isFirstTime: true },
   ) {
-    const tsconfig = path.join(process.cwd(), './tsconfig.json');
+    const tsconfig = path.join(this.opts.dir, './tsconfig.json');
     const res = await esbuild.build({
       sourcemap: true,
       platform: 'node',
@@ -89,8 +87,8 @@ export class Builder {
   }
 }
 
-export async function buildDir(opts: { dir: string; env: Env }) {
-  const builder = new Builder({ dir: opts.dir, env: opts.env });
+export async function buildDir(opts: { dir: string; env: Env; cwd: string }) {
+  const builder = new Builder({ dir: opts.dir, env: opts.env, cwd: opts.cwd });
   await builder.buildAll();
   return builder;
 }
