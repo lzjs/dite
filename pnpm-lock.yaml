@@ -567,7 +567,7 @@ importers:
       '@types/prettier': ^2.6.3
       '@types/resolve': ^1.20.2
       '@types/rimraf': ^3.0.2
-      '@types/semver': 7.3.9
+      '@types/semver': 7.3.10
       '@types/type-is': ^1.6.3
       '@types/yargs-parser': ^21.0.0
       chalk: ^5.0.1
@@ -588,7 +588,7 @@ importers:
       prettier: ^2.7.1
       resolve: ^1.22.1
       rimraf: ^3.0.2
-      semver: 7.3.6
+      semver: 7.3.7
       type-is: ^1.6.18
       yargs-parser: ^21.0.1
     devDependencies:
@@ -599,7 +599,7 @@ importers:
       '@types/prettier': 2.6.3
       '@types/resolve': 1.20.2
       '@types/rimraf': 3.0.2
-      '@types/semver': 7.3.9
+      '@types/semver': 7.3.10
       '@types/type-is': 1.6.3
       '@types/yargs-parser': 21.0.0
       chalk: 5.0.1
@@ -620,7 +620,7 @@ importers:
       prettier: 2.7.1
       resolve: 1.22.1
       rimraf: 3.0.2
-      semver: 7.3.6
+      semver: 7.3.7
       type-is: 1.6.18
       yargs-parser: 21.0.1
 
@@ -3000,8 +3000,8 @@ packages:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
     dev: true
 
-  /@types/semver/7.3.9:
-    resolution: {integrity: sha512-L/TMpyURfBkf+o/526Zb6kd/tchUP3iBDEPjqjb+U2MAJhVRxxrmr2fwpe08E7QsV7YLcpq0tUaQ9O9x97ZIxQ==}
+  /@types/semver/7.3.10:
+    resolution: {integrity: sha512-zsv3fsC7S84NN6nPK06u79oWgrPVd0NvOyqgghV1haPaFcVxIrP4DLomRwGAXk0ui4HZA7mOcSFL98sMVW9viw==}
     dev: true
 
   /@types/serve-static/1.13.10:
@@ -9066,14 +9066,6 @@ packages:
   /semver/6.3.0:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
-    dev: true
-
-  /semver/7.3.6:
-    resolution: {integrity: sha512-HZWqcgwLsjaX1HBD31msI/rXktuIhS+lWvdE4kN9z+8IVT4Itc7vqU2WvYsyD6/sjYCt4dEKH/m1M3dwI9CC5w==}
-    engines: {node: ^10.0.0 || ^12.0.0 || ^14.0.0 || >=16.0.0}
-    hasBin: true
-    dependencies:
-      lru-cache: 7.13.0
     dev: true
 
   /semver/7.3.7:
