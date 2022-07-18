@@ -65,16 +65,15 @@ PORT=3001 dite dev
     async fn() {
       const pkgPath = path.join(api.cwd, 'package.json');
       const pkg = fse.readJSONSync(pkgPath);
-      const code = fse.readFileSync(
-        path.join(__dirname, `../../../templates/${templateNames(pkg)}`),
-        'utf8',
-      );
       api.writeTmpFile({
         noPluginDir: true,
         path: 'dite.server.js',
         tplPath: path.join(TEMPLATES_DIR, templateNames(pkg)),
         format: 'cjs',
-        context: {},
+        context: {
+          name: templateNames(pkg),
+          cwd: path.join(api.cwd),
+        },
       });
       let now = Date.now();
       const builder = await buildDir({

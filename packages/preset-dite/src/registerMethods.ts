@@ -124,10 +124,12 @@ export default (api: IApi) => {
       }
 
       if (opts.format) {
+        const tsconfig = join(api.cwd, './server/tsconfig.json');
         const res = esbuild.transformSync(content, {
           target: 'node14',
           format: opts.format,
           loader: opts.loader ?? 'ts',
+          tsconfigRaw: fse.readJSONSync(tsconfig),
         });
         content = res.code;
       }

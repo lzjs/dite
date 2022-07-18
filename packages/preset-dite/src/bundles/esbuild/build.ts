@@ -51,7 +51,7 @@ export class Builder {
   ) {
     const tsconfig = path.join(this.opts.dir, './tsconfig.json');
     const res = await esbuild.build({
-      sourcemap: true,
+      sourcemap: false,
       platform: 'node',
       target: 'node14',
       bundle: false,
