@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@dite/nest": "0.0.25",
-    "@nestjs/common": "^9.0.3",
-    "@nestjs/core": "^9.0.3",
+    "@nestjs/common": "^9.0.4",
+    "@nestjs/core": "^9.0.4",
     "dite": "0.0.25",
     "react": "^18.0.2",
     "react-dom": "^18.0.2",
