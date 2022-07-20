@@ -87,7 +87,7 @@ export default (api: IApi) => {
         opts.path,
       );
       fse.mkdirpSync(dirname(absPath));
-      let content = opts.content;
+      let content = opts.content ?? '';
       if (!content) {
         assert(
           !opts.tplPath ||

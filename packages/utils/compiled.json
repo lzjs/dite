@@ -8,6 +8,7 @@
     "esbuild",
     "fast-glob",
     "fs-extra",
+    "handlebars",
     "import-lazy",
     "just-diff",
     "lodash",

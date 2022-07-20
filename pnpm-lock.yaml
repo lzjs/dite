@@ -466,6 +466,7 @@ importers:
       '@dite/node': 0.0.25
       '@nestjs/common': ^9.0.4
       '@nestjs/core': ^9.0.4
+      '@nestjs/platform-express': ^9.0.4
       '@types/compression': ^1.7.2
       '@types/express': ^4.17.13
       compression: ^1.7.4
@@ -477,7 +478,8 @@ importers:
       compression: 1.7.4
     devDependencies:
       '@nestjs/common': 9.0.4_j5hagqx4mwzscud4kyjdvubauy
-      '@nestjs/core': 9.0.4_iiv3ghisctajo7kghojdy6mwhq
+      '@nestjs/core': 9.0.4_izrjmf4dri7ukhi7dalgpgeevm
+      '@nestjs/platform-express': 9.0.4_nea3ckb3237zovpoezeipz3wve
       '@types/compression': 1.7.2
       '@types/express': 4.17.13
       reflect-metadata: 0.1.13
@@ -564,7 +566,7 @@ importers:
       '@types/prettier': ^2.6.3
       '@types/resolve': ^1.20.2
       '@types/rimraf': ^3.0.2
-      '@types/semver': 7.3.10
+      '@types/semver': ^7.3.10
       '@types/type-is': ^1.6.3
       '@types/yargs-parser': ^21.0.0
       chalk: ^5.0.1
@@ -576,6 +578,7 @@ importers:
       esbuild: ^0.14.48
       fast-glob: ^3.2.11
       fs-extra: ^10.1.0
+      handlebars: ^4.7.7
       import-lazy: 4.0.0
       just-diff: ^5.0.3
       lodash: ^4.17.21
@@ -587,9 +590,11 @@ importers:
       prettier: ^2.7.1
       resolve: ^1.22.1
       rimraf: ^3.0.2
-      semver: 7.3.7
+      semver: ^7.3.7
       type-is: ^1.6.18
       yargs-parser: ^21.0.1
+    dependencies:
+      handlebars: 4.7.7
     devDependencies:
       '@types/cross-spawn': 6.0.2
       '@types/debug': 4.1.7
@@ -2192,6 +2197,7 @@ packages:
       uuid: 8.3.2
     transitivePeerDependencies:
       - encoding
+    dev: false
 
   /@nestjs/core/9.0.4_it7oht3g6scnmdbcylil6d7hxi:
     resolution: {integrity: sha512-8mOzpXmxAWRByw5v6Npl/S7Zowmm2JHzS+h46iQK0BGkvlVXwMZXL2sJLH9XIokRvjASVbWqUn+d7W1mMjT9/Q==}
@@ -2225,6 +2231,39 @@ packages:
     transitivePeerDependencies:
       - encoding
 
+  /@nestjs/core/9.0.4_izrjmf4dri7ukhi7dalgpgeevm:
+    resolution: {integrity: sha512-8mOzpXmxAWRByw5v6Npl/S7Zowmm2JHzS+h46iQK0BGkvlVXwMZXL2sJLH9XIokRvjASVbWqUn+d7W1mMjT9/Q==}
+    requiresBuild: true
+    peerDependencies:
+      '@nestjs/common': ^9.0.0
+      '@nestjs/microservices': ^9.0.0
+      '@nestjs/platform-express': ^9.0.0
+      '@nestjs/websockets': ^9.0.0
+      reflect-metadata: ^0.1.12
+      rxjs: ^7.1.0
+    peerDependenciesMeta:
+      '@nestjs/microservices':
+        optional: true
+      '@nestjs/platform-express':
+        optional: true
+      '@nestjs/websockets':
+        optional: true
+    dependencies:
+      '@nestjs/common': 9.0.4_j5hagqx4mwzscud4kyjdvubauy
+      '@nestjs/platform-express': 9.0.4_nea3ckb3237zovpoezeipz3wve
+      '@nuxtjs/opencollective': 0.3.2
+      fast-safe-stringify: 2.1.1
+      iterare: 1.2.1
+      object-hash: 3.0.0
+      path-to-regexp: 3.2.0
+      reflect-metadata: 0.1.13
+      rxjs: 7.5.6
+      tslib: 2.4.0
+      uuid: 8.3.2
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
   /@nestjs/platform-express/9.0.3_nea3ckb3237zovpoezeipz3wve:
     resolution: {integrity: sha512-GNdfpyuv3fZwICNxB50PMXFIk2VjV4Z26lqWUBF5/6Th+fH68gy1HSVpu4CRjbsUuufrskkdI8fF8j4XrK2yzA==}
     peerDependencies:
@@ -2240,6 +2279,23 @@ packages:
       tslib: 2.4.0
     transitivePeerDependencies:
       - supports-color
+
+  /@nestjs/platform-express/9.0.4_nea3ckb3237zovpoezeipz3wve:
+    resolution: {integrity: sha512-jUru88otFCI1fOBbPescMJuULvHlg/YbNQkXPYUenGV9iN/isohXYepXqFEZDkbH64LnZo8jjUT87D0cMweTdg==}
+    peerDependencies:
+      '@nestjs/common': ^9.0.0
+      '@nestjs/core': ^9.0.0
+    dependencies:
+      '@nestjs/common': 9.0.4_j5hagqx4mwzscud4kyjdvubauy
+      '@nestjs/core': 9.0.4_izrjmf4dri7ukhi7dalgpgeevm
+      body-parser: 1.20.0
+      cors: 2.8.5
+      express: 4.18.1
+      multer: 1.4.4-lts.1
+      tslib: 2.4.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
 
   /@nestjs/schematics/9.0.1_nobats3jkocaued6l3papcxri4:
     resolution: {integrity: sha512-QU7GbnQvADFXdumcdADmv4vil3bhnYl2IFHWKieRt0MgIhghgBxIB7kDKWhswcuZ0kZztVbyYjo9aCrlf62fcw==}
@@ -5941,7 +5997,6 @@ packages:
       wordwrap: 1.0.0
     optionalDependencies:
       uglify-js: 3.16.2
-    dev: true
 
   /hard-rejection/2.1.0:
     resolution: {integrity: sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA==}
@@ -10196,7 +10251,6 @@ packages:
     resolution: {integrity: sha512-AaQNokTNgExWrkEYA24BTNMSjyqEXPSfhqoS0AxmHkCJ4U+Dyy5AvbGV/sqxuxficEfGGoX3zWw9R7QpLFfEsg==}
     engines: {node: '>=0.8.0'}
     hasBin: true
-    dev: true
 
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
@@ -10545,7 +10599,6 @@ packages:
 
   /wordwrap/1.0.0:
     resolution: {integrity: sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==}
-    dev: true
 
   /wrap-ansi/6.2.0:
     resolution: {integrity: sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA==}

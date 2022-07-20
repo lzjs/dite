@@ -37,11 +37,12 @@ export class DiteApp<T extends INestApplication = INestApplication> {
     this.config = config;
   }
 
-  public static async create<T extends INestApplication = INestApplication>(
+  public static create<T extends INestApplication = INestApplication>(
     app: T,
-    config: IConfig,
+    opts?: IConfig,
   ) {
-    return new DiteApp(app, config);
+    const config = require(path.join(opts?.cwd ?? process.cwd(), CONFIG_FILE));
+    return new DiteApp(app, lodash.merge({}, config, opts));
   }
 
   public async close(): Promise<void> {
@@ -134,4 +135,11 @@ export async function createServer<
   const server = await DiteApp.create(app, config);
   app.flushLogs();
   return server;
+}
+
+export function createDiteApp<T extends INestApplication = INestApplication>(
+  app: T,
+  opts?: IConfig,
+) {
+  return DiteApp.create<T>(app, opts);
 }

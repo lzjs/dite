@@ -16,6 +16,7 @@ function onFatalError(err: unknown) {
 }
 
 export async function run() {
+  console.log(Date.now());
   const args = yParser(process.argv.slice(2), {
     alias: {
       version: ['v'],

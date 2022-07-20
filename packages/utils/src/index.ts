@@ -1,3 +1,4 @@
+import hbs from 'handlebars';
 import * as chokidar from '../compiled/chokidar';
 import debug from '../compiled/debug';
 import fse from '../compiled/fs-extra';
@@ -11,7 +12,6 @@ import * as logger from './logger';
 import * as register from './register';
 
 export * from './importLazy';
-export * from './trace';
 export * from './winPath';
 export {
   chokidar,
@@ -22,6 +22,7 @@ export {
   Mustache,
   lodash,
   fse,
+  hbs,
   resolve,
   register,
   compatRequire,

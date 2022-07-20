@@ -13,7 +13,7 @@ const startServer = (
     port: number;
   },
 ) => {
-  const modulePath = path.join(opts.cwd, '.dite/dite.server.js');
+  const modulePath = path.join(opts.cwd, '.dite/server/main.js');
   const command = `node ${modulePath}`;
   const runServer = () => {
     return run(command, {
@@ -65,6 +65,7 @@ PORT=3001 dite dev
     async fn() {
       const pkgPath = path.join(api.cwd, 'package.json');
       const pkg = fse.readJSONSync(pkgPath);
+      let now = Date.now();
       api.writeTmpFile({
         noPluginDir: true,
         path: 'dite.server.js',
@@ -75,7 +76,8 @@ PORT=3001 dite dev
           cwd: path.join(api.cwd),
         },
       });
-      let now = Date.now();
+      console.log('write duration:', Date.now() - now);
+      now = Date.now();
       const builder = await buildDir({
         dir: path.join(api.cwd, 'server'),
         cwd: api.cwd,
