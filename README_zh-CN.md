@@ -15,11 +15,11 @@
   <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license" /></a>
 </p>
 
-## Getting Started
+## 快速上手
 
 TODO
 
-## Packages
+## 生态系统
 
 | Package                                   | Version (click for changelogs)                                                                                |
 |-------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
@@ -33,11 +33,11 @@ TODO
 | [@dite/nest](packages/nest)               | [![@dite/nest version](https://badgen.net/npm/v/@dite/nest)](packages/nest/CHANGELOG.md)                      |
 | [@dite/react](packages/react)             | [![@dite/react version](https://badgen.net/npm/v/@dite/react)](packages/react/CHANGELOG.md)                   |
 
-## Contribution
+## 参与贡献
 
 See [Contributing Guide](./CONTRIBUTING.md).
 
-## Preview
+## 体验
 
 Open this example on [CodeSandbox](https://codesandbox.com):
 
